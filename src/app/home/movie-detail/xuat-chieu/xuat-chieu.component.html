@@ -1,0 +1,9 @@
+<div *ngIf="lichChieu" class="container">
+  các xuất chiếu:
+  <div *ngFor="let lich of lichChieu | slice: 0:5" class="row">
+    <a routerLink="/checkout/{{ lich.maLichChieu }}">
+      ngày {{ lich.ngayChieuGioChieu | date: "dd/MM/yyyy" }}
+      , giờ{{ lich.ngayChieuGioChieu | date: "hh:mm" }}
+    </a>
+  </div>
+</div>

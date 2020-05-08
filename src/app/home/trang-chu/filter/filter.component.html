@@ -1,0 +1,27 @@
+<div class="container">
+ <form>
+    <select>
+        <option *ngFor="let tenMovie of movie" [value]="tenMovie.maPhim" #chonPhim >
+          {{ tenMovie.tenPhim }}
+        </option>
+      </select>
+    
+      <select>
+        <option>
+          rap
+        </option>
+      </select>
+    
+      <select>
+        <option>
+          ngay xem
+        </option>
+      </select>
+    
+      <select>
+        <option>
+          xuat chieu
+        </option>
+      </select>
+ </form>
+</div>
