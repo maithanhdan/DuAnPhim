@@ -30,11 +30,4 @@ export class MoviesService {
     params = params.append('maPhim', maPhim);
     return this.api.get('QuanLyPhim/LayThongTinPhim', { params });
   }
-
-  // // Khi sử dụng api đăng nhập sử dụng tap để lấy kết quả trả về là userInfo rồi lưu vào localStorage
-  // public layDanhSachPhim(): Observable<any> {
-  //   const params = new HttpParams().set('maNhom', 'GP01');
-  //   return this.api.get(`QuanLyPhim/LayDanhSachPhim`, params);
-  //   // api/quanlyphim/laydanhsachphim?maNhom=GP01
-  // }
 }

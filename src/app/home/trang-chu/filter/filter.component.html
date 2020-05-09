@@ -1,27 +1,45 @@
 <div class="container">
- <form>
-    <select>
-        <option *ngFor="let tenMovie of movie" [value]="tenMovie.maPhim" #chonPhim >
-          {{ tenMovie.tenPhim }}
-        </option>
-      </select>
-    
-      <select>
-        <option>
-          rap
-        </option>
-      </select>
-    
-      <select>
-        <option>
-          ngay xem
-        </option>
-      </select>
-    
-      <select>
-        <option>
-          xuat chieu
-        </option>
-      </select>
- </form>
+  <form style="display: flex"  (ngSubmit)="onSubmit()">
+    <select class="form-control" (change)="layTenCumRap($event)">
+      <option >chon he thong rap</option>
+      <option
+        *ngFor="let tenHeThongRap of tenHeThongRap; let stt = index"
+        [value]="stt"
+      >
+        {{ tenHeThongRap.tenHeThongRap }}
+      </option>
+    </select>
+
+    <select class="form-control" (change)="layTenPhim($event)">
+      <option >chon cum rap</option>
+      <option *ngFor="let tenCumRap of CumRap; let stt = index" [value]="stt">
+        {{ tenCumRap.tenCumRap }}
+      </option>
+    </select>
+
+    <select class="form-control" (change)="layNgayChieu($event)">
+      <option>chon tenPhim</option>
+      <option *ngFor="let tenPhim of tenPhim; let stt = index" [value]="stt">
+        {{ tenPhim.tenPhim }}
+      </option>
+    </select>
+
+    <select class="form-control" (change)="layGioChieu($event)">
+      <option>chon ngay Chieu</option>
+      <option
+        *ngFor="let ngayChieu of ngayChieu; let stt = index"
+        [value]="stt"
+      >
+        {{ ngayChieu.ngayChieuGioChieu | date: "dd/MM/yyy" }}
+      </option>
+    </select>
+
+    <select class="form-control">
+      <option>chon gio chieu</option>
+      <option *ngFor="let giochieu of ngayChieu; let stt = index" [value]="stt">
+        {{ giochieu.ngayChieuGioChieu | date: "hh : mm" }}
+      </option>
+    </select>
+    <button type="submit" class="btn btn-danger">mua ve</button>
+  </form>
 </div>
