@@ -1,13 +1,43 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CinemasService } from 'src/app/core/services/cinemas.service';
 
 @Component({
   selector: 'app-xuat-chieu',
   templateUrl: './xuat-chieu.component.html',
-  styleUrls: ['./xuat-chieu.component.scss'],
+  styleUrls: ['./xuat-chieu.component.scss']
 })
 export class XuatChieuComponent implements OnInit {
   @Input() lichChieu: any[];
-  constructor() {}
+  lichChieuTheoNgay: any[];
+  constructor(public cinemasService: CinemasService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Kiểm tra xem hệ thống rạp đã có data chưa
+    // Nếu có thì k cần gọi lại API ngược lại thì gọi API
+    // Object.keys(heThongRap).length === 0 cách kiểm tra Object rỗng
+    const heThongRap = this.cinemasService.heThongRap();
+    if (heThongRap.length === 0) {
+      this.cinemasService.layThongTinHeThongRap().subscribe(res => {
+        console.log(res[0].maHeThongRap);
+        this.cinemasService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();
+      });
+    }
+  }
+
+  chonHeThongRap(maHeThongRap: string) {
+    this.cinemasService.layCumRapTheoHeThong(maHeThongRap).subscribe();
+  }
+
+  chonNgayChieu(date) {
+    if (!this.lichChieu) return [];
+    this.lichChieuTheoNgay = this.lichChieu.filter(item => {
+      const ngayChieu = item.ngayChieuGioChieu.split('T')[0];
+      return ngayChieu === date;
+    })
+  }
+
+  filterLichChieuTheoCumRap(maCumRap: string) {
+    if (!this.lichChieuTheoNgay) return [];
+    return this.lichChieuTheoNgay.filter((item) => item.thongTinRap.maCumRap === maCumRap);
+  }
 }
