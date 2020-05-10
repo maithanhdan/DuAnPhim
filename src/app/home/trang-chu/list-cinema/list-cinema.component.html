@@ -1,20 +1,33 @@
-
-
-<div class="container">
+<!-- <div class="container">
     <div class="row">
-        <div class="col-md-1 cinema-icon">
-          <a routerLink=""><img src="./../../../../assets/img/cgv.png" alt=""></a> 
-          <a routerLink=""><img src="./../../../../assets/img/bhd.png" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/cns.png" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/dcine.jpg" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/ddc.png" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/glx.png" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/megacs.png" alt=""></a>  
-          <a routerLink=""><img src="./../../../../assets/img/lotte.png" alt=""></a>  
-        </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-7">
-            <p>Ko co suat chieu</p>
-        </div>
+        <ul class="col-md-1">
+            <li>
+                
+            </li>
+        </ul>
+        <div class="col-md-4">2</div>
+        <div class="col-md-7">3</div>
     </div>
+</div> -->
+<div class="flex container">
+  <div class="row">
+    <div class="col-md-5 row">
+      <ul class="col-md-2">
+        <li
+          *ngFor="let heThongRap of cinemaService.heThongRap()"
+          (click)="chonHeThongRap(heThongRap.maHeThongRap)"
+        >
+          <img [src]="heThongRap.logo" width="50" height="50" />
+        </li>
+      </ul>
+      <ul class="col-md-10" (click)="chonPhimChieu()">
+        <li *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()">
+          {{ cumRap.tenCumRap }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-7">
+       
+    </div>
+  </div>
 </div>

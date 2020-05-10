@@ -26,7 +26,8 @@ export class CinemasService {
   }
 
   public layCumRapTheoHeThong(maHeThongRap: string): Observable<any> {
-    return this.api.get(`QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`).pipe(tap((res) => {
+    return this.api.get(`QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
+    .pipe(tap((res) => {
       this.cumRapTheoHeThongSubject.next(res);
     }))
   }

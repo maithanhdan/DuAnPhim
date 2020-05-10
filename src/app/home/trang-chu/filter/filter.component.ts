@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MoviesService } from "src/app/core/services/movies.service";
 import { Movie } from "./../../../core/models/movie";
 import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin-lich-chieu-he-thong.service";
+import { Subscription } from 'DuAnPhim/node_modules/rxjs';
 @Component({
   selector: "app-filter",
   templateUrl: "./filter.component.html",
@@ -14,9 +15,11 @@ export class FilterComponent implements OnInit {
   tenPhim: any[];
   ngayChieu: any[];
   gioChieu:any[];
+  subTenHeThongRap:Subscription;
+  subCumRap:Subscription;
 
   ngOnInit(): void {
-    this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
+    this.subTenHeThongRap=this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
       this.tenHeThongRap = rs;
       console.log(rs);
     });
@@ -40,4 +43,8 @@ export class FilterComponent implements OnInit {
     this.gioChieu = this.ngayChieu[stt];
   }
   onSubmit(){}
+  
+  // ngOnDestroy(){
+  //   this.subTenHeThongRap.unsubscribe();
+  // }
 }

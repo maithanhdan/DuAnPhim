@@ -5,25 +5,30 @@
     </div>
 </div> -->
 
-<div class="flex">
+<div class="flex container">
   <div class="row">
-      <ul class="col-md-3">
-          <li *ngFor="let heThongRap of cinemasService.heThongRap()"
-              (click)="chonHeThongRap(heThongRap.maHeThongRap)">
-              <img [src]="heThongRap.logo" width="50" height="50">
-              {{heThongRap.tenHeThongRap}}
-          </li>
-      </ul>
-      <div class="col-md-9">
-          <div>
-              <p (click)="chonNgayChieu('2019-01-01')">01</p>
-          </div>
-          <div *ngFor="let cumRap of cinemasService.cumRapTheoHeThong()">
-              {{cumRap.tenCumRap}}
-              <div *ngFor="let lichchieu of filterLichChieuTheoCumRap(cumRap.maCumRap)">
-                  {{lichchieu.ngayChieuGioChieu | date:"hh:mm"}}
-              </div>
-          </div>
+    <ul class="col-md-3">
+      <li
+        *ngFor="let heThongRap of cinemasService.heThongRap()"
+        (click)="chonHeThongRap(heThongRap.maHeThongRap)"
+        class="cinema"
+      >
+        <img [src]="heThongRap.logo" width="50" height="50" />
+        {{ heThongRap.tenHeThongRap }}
+      </li>
+    </ul>
+    <div class="col-md-9">
+        
+      <p class="cinema" (click)="chonNgayChieu('2019-01-01')">01</p>
+
+      <div *ngFor="let cumRap of cinemasService.cumRapTheoHeThong()">
+        {{ cumRap.tenCumRap }}
+        <div
+          *ngFor="let lichchieu of filterLichChieuTheoCumRap(cumRap.maCumRap)"
+        >
+          {{ lichchieu.ngayChieuGioChieu | date: "hh:mm" }}
+        </div>
       </div>
+    </div>
   </div>
 </div>

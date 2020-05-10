@@ -8,7 +8,7 @@ import { CinemasService } from 'src/app/core/services/cinemas.service';
 })
 export class XuatChieuComponent implements OnInit {
   @Input() lichChieu: any[];
-  lichChieuTheoNgay: any[];
+  lichChieuTheoNgay: any[]; 
   constructor(public cinemasService: CinemasService) { }
 
   ngOnInit(): void {
@@ -17,9 +17,10 @@ export class XuatChieuComponent implements OnInit {
     // Object.keys(heThongRap).length === 0 cách kiểm tra Object rỗng
     const heThongRap = this.cinemasService.heThongRap();
     if (heThongRap.length === 0) {
+      // this.cinemasService.layThongTinHeThongRap().subscribe dùng để gọi ra các logo hoặc tên Hệ thống rạp
       this.cinemasService.layThongTinHeThongRap().subscribe(res => {
         console.log(res[0].maHeThongRap);
-        this.cinemasService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();
+       this.cinemasService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();//dùng để khi mới render xong sẽ hiện các tên rạp theo cụm rạp
       });
     }
   }
@@ -40,4 +41,5 @@ export class XuatChieuComponent implements OnInit {
     if (!this.lichChieuTheoNgay) return [];
     return this.lichChieuTheoNgay.filter((item) => item.thongTinRap.maCumRap === maCumRap);
   }
+
 }

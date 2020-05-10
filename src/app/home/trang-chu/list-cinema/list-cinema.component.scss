@@ -1,5 +1,16 @@
-.cinema-icon img{
-    max-width: 50px;
-    max-height: 50px;
-    margin: 20px 0;
+
+ul li {
+  list-style: none;
+}
+.col-md-2 li img {
+  border: 1px solid gray;
+  height: 60px;
+  margin: 0 0 5px 0;
+}
+.col-md-10 li {
+  font-size: 15px;
+  padding: 10px;
+  margin: 0 0 5px 0;
+  border: 1px solid gray;
+  height: 60px;
 }
