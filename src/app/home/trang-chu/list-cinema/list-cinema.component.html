@@ -19,8 +19,9 @@
       </ul>
     </div>
     <div class="col-md-7">
-      <ul>
+      <ul *ngIf="lichChieu">
         <li *ngFor="let phim of lichChieu.danhSachPhim">
+          <img [src]="phim.hinhAnh" width="90" height="110">
           {{phim.tenPhim}}
         </li>
       </ul>

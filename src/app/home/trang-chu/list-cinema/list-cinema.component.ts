@@ -36,7 +36,7 @@ export class ListCinemaComponent implements OnInit {
 
   chonPhimChieu(maCumRap: string) {
     //  Đầu tiên dựa vào maCumRap tìm ra cái obj của rạp đó
-    this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find((item) =>
+    this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find(item =>
       item.maCumRap === maCumRap
     );
     // Tiếp theo lấy  lịch chiếu của cái rạp đang chọn dựa vào maCumRap
