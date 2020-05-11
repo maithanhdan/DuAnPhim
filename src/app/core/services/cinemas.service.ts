@@ -45,15 +45,15 @@ export class CinemasService {
   }
 
   public layThongTinLichChieuRap(): Observable<any> {
-    let params = new HttpParams()
-    params = params.append("maNhom", "GP01");
-    return this.api
-      .get("QuanLyRap/LayThongTinLichChieuHeThongRap", { params })
-      .pipe(
-        tap(rs => {
-          this.lichChieuSubject.next(rs);
-        })
-      );
+    // let params = new HttpParams()
+    // params = params.append("maNhom", "GP01");
+    // return this.api
+    //   .get("QuanLyRap/LayThongTinLichChieuHeThongRap", { params })
+    //   .pipe(
+    //     tap(rs => {
+    //       this.lichChieuSubject.next(rs);
+    //     })
+    //   );
   }
   public lichChieuHeThong() {
     return this.lichChieuSubject.value;
