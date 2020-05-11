@@ -21,7 +21,7 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
     this.subTenHeThongRap=this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
       this.tenHeThongRap = rs;
-      console.log(rs);
+      // console.log(rs);
     });
   }
 

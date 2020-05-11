@@ -21,4 +21,7 @@ export class ThongTinLichChieuHeThongService {
         })
       );
   }
+  public getThongTinLichChieuSubject() {
+    return this.thongTinLichChieuChiTietSubject.value;
+  }
 }
