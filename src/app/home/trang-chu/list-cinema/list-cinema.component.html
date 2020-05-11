@@ -5,6 +5,7 @@
         <li
           *ngFor="let heThongRap of cinemaService.heThongRap()"
           (click)="chonHeThongRap(heThongRap.maHeThongRap)"
+          style="cursor: pointer"
         >
           <img [src]="heThongRap.logo" width="50" height="50" />
         </li>
@@ -13,6 +14,7 @@
         <li
           *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()"
           (click)="chonPhimChieu(cumRap.maCumRap)"
+          style="cursor: pointer"
         >
           {{ cumRap.tenCumRap }}
         </li>
@@ -21,7 +23,7 @@
     <div class="col-md-7">
       <ul>
         <li *ngFor="let danhSach of cinemaService.lichChieuHeThong()">
-            
+            {{danhSach}}
         </li>
       </ul>
     </div>

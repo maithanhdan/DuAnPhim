@@ -38,44 +38,55 @@ export class ListCinemaComponent implements OnInit {
     this.cinemaService.layCumRapTheoHeThong(maHeThongRap).subscribe();
   }
 
-  async chonPhimChieu(maCumRap: string) {
-    let listCum = [];
-    let list = [];
-    this.thongTinLichChieu.layLichChieuChiTiet().subscribe(async rs => {
-      await rs.forEach(element => {
-        listCum.push(element.lstCumRap);
-      });
-      await listCum.forEach(element => {
-        element.forEach(x => {
-          if (x.maCumRap == maCumRap) {
-            list.push(x);
-          }
-        });
-      });
-      this.lichChieu = await list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
-      console.log(this.lichChieu);
-      return this.lichChieu;
-    });
-  }
-  lichChieu: any[];
-  // chonPhimChieu(maCumRap: string) {
+  // async chonPhimChieu(maCumRap: string) {
   //   let listCum = [];
   //   let list = [];
-  //   this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
-  //     rs.forEach(element => {
+  //   this.thongTinLichChieu.layLichChieuChiTiet().subscribe(async rs => {
+  //     await rs.forEach(element => {
   //       listCum.push(element.lstCumRap);
   //     });
-  //     listCum.forEach(element => {
+  //     await listCum.forEach(element => {
   //       element.forEach(x => {
-  //         if (x.maCumRap === maCumRap) {
+  //         if (x.maCumRap == maCumRap) {
   //           list.push(x);
   //         }
   //       });
   //     });
-
-  //     let films = list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
-  //     return films;
-  //     console.log(films);
+  //     this.lichChieu = await list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
+  //     console.log(this.lichChieu);
+  //     return this.lichChieu;
   //   });
   // }
+  lichChieu: any[];
+  chonPhimChieu(maCumRap: string) {
+    let listCum = [];
+    let list = [];
+    this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
+      //b1 : lấy data là rs trả về là 1 cái mảng sao duyet bằng forEach
+      //b2 : gán từng element.lstCumRap ở đây là 1 cái mảng vài listCum[]
+      rs.forEach(element => {
+        //b1
+        listCum.push(element.lstCumRap); //b2
+      });
+      //b3  :dùng forEach duyệt listCum[]
+      //b4 : do mỗi phần tử của listCum[] là 1 cái mảng nên phải duyệt 1 lần nữa
+      //b5 : xét dk maCumRap của từng phần tử ele  so sánh maCumRap dc truyền vào
+      //b6 : nếu === thì push vào mảng list
+      listCum.forEach(element => {
+        //b3
+        element.forEach(x => {
+          //b4
+          if (x.maCumRap == maCumRap) {
+            //b5
+            list.push(x);
+          }
+        });
+      });
+      //b6 : do trong list[] còn có 1 số dữ liệu đã dùng rồi nên mới dung hàm map để giữ lại danhSachPhim[]
+      //b7 : gán lichChieu=list
+      this.lichChieu = list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
+      console.log(this.lichChieu);
+      return this.lichChieu;
+    }); 
+  }
 }
