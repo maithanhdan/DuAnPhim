@@ -20,8 +20,8 @@
     </div>
     <div class="col-md-7">
       <ul>
-        <li *ngFor="let danhSach of cinemaService.lichChieuHeThong()">
-            
+        <li *ngFor="let phim of lichChieu.danhSachPhim">
+          {{phim.tenPhim}}
         </li>
       </ul>
     </div>

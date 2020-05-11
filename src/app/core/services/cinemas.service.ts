@@ -54,7 +54,6 @@ export class CinemasService {
         })
       );
   }
-  
   public lichChieuHeThong() {
     return this.lichChieuSubject.value;
   }

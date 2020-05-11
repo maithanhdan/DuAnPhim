@@ -7,9 +7,11 @@ import { CinemasService } from "src/app/core/services/cinemas.service";
   styleUrls: ["./list-cinema.component.scss"]
 })
 export class ListCinemaComponent implements OnInit {
+  rapDangChon: any;
+  lichChieu: any;
   constructor(
     public cinemaService: CinemasService,
-  ) {}
+  ) { }
   // heThongRap:any
 
   ngOnInit(): void {
@@ -19,15 +21,10 @@ export class ListCinemaComponent implements OnInit {
     if (heThongRap.length === 0) {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
         console.log(res[0].maHeThongRap);
-        const cumRap = this.cinemaService.cumRapTheoHeThong();
-        if (cumRap.length === 0) {
-          this.cinemaService
-            .layCumRapTheoHeThong(res[0].maHeThongRap)
-            .subscribe(res => {
-              this.cinemaService.layThongTinLichChieuRap(res[0]).subscribe();
-              console.log(res[0].maCumRap);
-            });
-        }
+        // Gọi api lấy cụm rạp theo hệ thống
+        this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();
+        // Gọi api lấy lịch chiếu theo hệ thống rạp
+        this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap).subscribe();
       });
     }
   }
@@ -37,24 +34,15 @@ export class ListCinemaComponent implements OnInit {
     this.cinemaService.layThongTinLichChieuRap(maHeThongRap).subscribe();
   }
 
-  async chonPhimChieu(maCumRap: string) {
-    let listCum = [];
-    let list = [];
-    this.cinemaService.layThongTinLichChieuRap().subscribe(async rs => {
-      await rs.forEach(element => {
-        listCum.push(element.lstCumRap);
-      });
-      await listCum.forEach(element => {
-        element.forEach(x => {
-          if (x.maCumRap == maCumRap) {
-            list.push(x);
-          }
-        });
-      });
-      this.lichChieu = await list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
-      console.log(this.lichChieu);
-      return this.lichChieu;
-    });
+  chonPhimChieu(maCumRap: string) {
+    //  Đầu tiên dựa vào maCumRap tìm ra cái obj của rạp đó
+    this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find((item) =>
+      item.maCumRap === maCumRap
+    );
+    // Tiếp theo lấy  lịch chiếu của cái rạp đang chọn dựa vào maCumRap
+    this.lichChieu = this.cinemaService.lichChieuHeThong()[0].lstCumRap.find(item =>
+      item.maCumRap === maCumRap
+    );
+    console.log(this.rapDangChon, this.lichChieu);
   }
-  lichChieu: any[];
 }
