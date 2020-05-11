@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { ApiService } from "./api.service";
 import { Observable, BehaviorSubject } from "rxjs";
 import { tap } from "rxjs/operators";
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: "root"
@@ -43,14 +44,14 @@ export class CinemasService {
     return this.cumRapTheoHeThongSubject.value;
   }
 
-  public layThongTinLichChieuRap(maHeThongRap = ""): Observable<any> {
+  public layThongTinLichChieuRap(): Observable<any> {
+    let params = new HttpParams()
+    params = params.append("maNhom", "GP01");
     return this.api
-      .get(
-        `QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP01`
-      )
+      .get("QuanLyRap/LayThongTinLichChieuHeThongRap", { params })
       .pipe(
-        tap(res => {
-          this.lichChieuSubject.next(res);
+        tap(rs => {
+          this.lichChieuSubject.next(rs);
         })
       );
   }

@@ -21,9 +21,9 @@
       </ul>
     </div>
     <div class="col-md-7">
-      <ul>
-        <li *ngFor="let danhSach of cinemaService.lichChieuHeThong()">
-            {{danhSach}}
+      <ul *ngIf="lichChieu">
+        <li *ngFor="let danhSach of lichChieu.danhSachPhim">
+          {{danhSach.tenPhim}}
         </li>
       </ul>
     </div>
