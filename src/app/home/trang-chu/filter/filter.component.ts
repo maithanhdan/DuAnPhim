@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { MoviesService } from "src/app/core/services/movies.service";
 import { Movie } from "./../../../core/models/movie";
-import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin-lich-chieu-he-thong.service";
-import { Subscription } from 'DuAnPhim/node_modules/rxjs';
+import { CinemasService } from 'src/app/core/services/cinemas.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: "app-filter",
   templateUrl: "./filter.component.html",
   styleUrls: ["./filter.component.scss"]
 })
 export class FilterComponent implements OnInit {
-  constructor(private thongTinLichChieu: ThongTinLichChieuHeThongService) {}
+  constructor(private cinemaservice: CinemasService) {}
   tenHeThongRap: any[];
   CumRap: any[];
   tenPhim: any[];
@@ -19,7 +19,7 @@ export class FilterComponent implements OnInit {
   subCumRap:Subscription;
 
   ngOnInit(): void {
-    this.subTenHeThongRap=this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
+    this.subTenHeThongRap=this.cinemaservice.layThongTinLichChieuRap().subscribe(rs => {
       this.tenHeThongRap = rs;
       // console.log(rs);
     });

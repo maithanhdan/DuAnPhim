@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
-import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin-lich-chieu-he-thong.service";
 
 @Component({
   selector: "app-list-cinema",
@@ -10,7 +9,6 @@ import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin
 export class ListCinemaComponent implements OnInit {
   constructor(
     public cinemaService: CinemasService,
-    public thongTinLichChieu: ThongTinLichChieuHeThongService
   ) {}
   // heThongRap:any
 
@@ -36,12 +34,13 @@ export class ListCinemaComponent implements OnInit {
 
   chonHeThongRap(maHeThongRap: string) {
     this.cinemaService.layCumRapTheoHeThong(maHeThongRap).subscribe();
+    this.cinemaService.layThongTinLichChieuRap(maHeThongRap).subscribe();
   }
 
   async chonPhimChieu(maCumRap: string) {
     let listCum = [];
     let list = [];
-    this.thongTinLichChieu.layLichChieuChiTiet().subscribe(async rs => {
+    this.cinemaService.layThongTinLichChieuRap().subscribe(async rs => {
       await rs.forEach(element => {
         listCum.push(element.lstCumRap);
       });
@@ -58,24 +57,4 @@ export class ListCinemaComponent implements OnInit {
     });
   }
   lichChieu: any[];
-  // chonPhimChieu(maCumRap: string) {
-  //   let listCum = [];
-  //   let list = [];
-  //   this.thongTinLichChieu.layLichChieuChiTiet().subscribe(rs => {
-  //     rs.forEach(element => {
-  //       listCum.push(element.lstCumRap);
-  //     });
-  //     listCum.forEach(element => {
-  //       element.forEach(x => {
-  //         if (x.maCumRap === maCumRap) {
-  //           list.push(x);
-  //         }
-  //       });
-  //     });
-
-  //     let films = list.map(x => x.danhSachPhim); //duyet tat cả list , sau đó  gán lại film thành danhSachPhim
-  //     return films;
-  //     console.log(films);
-  //   });
-  // }
 }
