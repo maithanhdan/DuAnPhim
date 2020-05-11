@@ -22,8 +22,14 @@
     </div>
     <div class="col-md-7">
       <ul *ngIf="lichChieu">
+<<<<<<< HEAD
         <li *ngFor="let danhSach of lichChieu.danhSachPhim">
           {{danhSach.tenPhim}}
+=======
+        <li *ngFor="let phim of lichChieu.danhSachPhim">
+          <img [src]="phim.hinhAnh" width="90" height="110">
+          {{phim.tenPhim}}
+>>>>>>> d343090c18f9bff2c5c7b6351cf6e053066b16a8
         </li>
       </ul>
     </div>

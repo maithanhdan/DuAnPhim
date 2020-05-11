@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
-import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin-lich-chieu-he-thong.service";
 
 @Component({
   selector: "app-list-cinema",
@@ -8,12 +7,20 @@ import { ThongTinLichChieuHeThongService } from "src/app/core/services/thong-tin
   styleUrls: ["./list-cinema.component.scss"]
 })
 export class ListCinemaComponent implements OnInit {
+  rapDangChon: any;
+  lichChieu: any;
   constructor(
     public cinemaService: CinemasService,
+<<<<<<< HEAD
     public thongTinLichChieu: ThongTinLichChieuHeThongService
   ) {}
   lichChieu: any;
   rapDangChon: any;
+=======
+  ) { }
+  // heThongRap:any
+
+>>>>>>> d343090c18f9bff2c5c7b6351cf6e053066b16a8
   ngOnInit(): void {
     // hàm subscribe sẽ chờ kết quả trả về từ Observable
 
@@ -21,6 +28,7 @@ export class ListCinemaComponent implements OnInit {
     if (heThongRap.length === 0) {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
         console.log(res[0].maHeThongRap);
+<<<<<<< HEAD
         this.cinemaService
           .layCumRapTheoHeThong(res[0].maHeThongRap)
           .subscribe();
@@ -28,6 +36,12 @@ export class ListCinemaComponent implements OnInit {
         this.cinemaService
           .layThongTinLichChieuRap(res[0].maHeThongRap)
           .subscribe();
+=======
+        // Gọi api lấy cụm rạp theo hệ thống
+        this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();
+        // Gọi api lấy lịch chiếu theo hệ thống rạp
+        this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap).subscribe();
+>>>>>>> d343090c18f9bff2c5c7b6351cf6e053066b16a8
       });
     }
   }
@@ -38,6 +52,7 @@ export class ListCinemaComponent implements OnInit {
   }
 
   chonPhimChieu(maCumRap: string) {
+<<<<<<< HEAD
     this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find(item => {
       item.maCumRap === maCumRap;
     });
@@ -80,4 +95,16 @@ export class ListCinemaComponent implements OnInit {
   //     return this.lichChieu;
   //   });
   // }
+=======
+    //  Đầu tiên dựa vào maCumRap tìm ra cái obj của rạp đó
+    this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find(item =>
+      item.maCumRap === maCumRap
+    );
+    // Tiếp theo lấy  lịch chiếu của cái rạp đang chọn dựa vào maCumRap
+    this.lichChieu = this.cinemaService.lichChieuHeThong()[0].lstCumRap.find(item =>
+      item.maCumRap === maCumRap
+    );
+    console.log(this.rapDangChon, this.lichChieu);
+  }
+>>>>>>> d343090c18f9bff2c5c7b6351cf6e053066b16a8
 }
