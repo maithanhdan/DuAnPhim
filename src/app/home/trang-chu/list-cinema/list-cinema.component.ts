@@ -11,6 +11,7 @@ export class ListCinemaComponent implements OnInit {
   lichChieu: any;
   rapDangChon: any;
   xuatChieu1Phim: any;
+  listDSP: any;
   ngOnInit(): void {
     // hàm subscribe sẽ chờ kết quả trả về từ Observable
 
@@ -43,12 +44,18 @@ export class ListCinemaComponent implements OnInit {
     // Tiếp theo lấy  lịch chiếu của cái rạp đang chọn dựa vào maCumRap
     this.lichChieu = this.cinemaService
       .lichChieuHeThong()[0]
-      .lstCumRap.find(item => {
-        item.maCumRap === maCumRap;
-      });
+      .lstCumRap.find(item => item.maCumRap === maCumRap);
 
-    // this.xuatChieu1Phim = this.lichChieu.danhSachPhim[0].find(item => {
-    //   console.log(this.xuatChieu1Phim);
-    // });
+    //bốc tách data
+    const { danhSachPhim, ...asd } = this.lichChieu;
+    this.listDSP = danhSachPhim;
+    const { danhSachRap, ...dsa } = this.rapDangChon;
+    this.rapDangChon = danhSachRap;
+
+    //tim xuat chieu cua bộ phim
+    this.xuatChieu1Phim = this.listDSP[0].lstLichChieuTheoPhim.filter(item => {
+      item.maRap === this.rapDangChon.maRap;
+      console.log(item.ngayChieuGioChieu, item.maRap);
+    });
   }
 }
