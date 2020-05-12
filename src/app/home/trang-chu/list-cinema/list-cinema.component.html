@@ -24,12 +24,12 @@
           <img [src]="phim.hinhAnh" width="90" height="110" />
           {{ phim.tenPhim }}
           <div
-            *ngFor="let xuatChieu of listDSP[0].lstLichChieuTheoPhim"
+            *ngFor="let xuatChieu of listDSP[0].lstLichChieuTheoPhim  | slice: 0 : 3"
             class="row"
           >
-            ngày chiếu : {{ xuatChieu.ngayChieuGioChieu | date: "dd/MM/yyy" }} ,
+            ngày chiếu : {{ xuatChieu.ngayChieuGioChieu | date: "dd/MM/yyy"}} ,
             giờ chiếu :
-            {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm" }}
+            {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm"}}
           </div>
         </li>
       </ul>
