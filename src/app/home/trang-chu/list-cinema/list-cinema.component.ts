@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
+import { zip } from 'rxjs';
 
 @Component({
   selector: "app-list-cinema",
@@ -24,10 +25,16 @@ export class ListCinemaComponent implements OnInit {
     const heThongRap = this.cinemaService.heThongRap();
     if (heThongRap.length === 0) {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
-        // Gọi api lấy cụm rạp theo hệ thống
-        this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap).subscribe();
-        // Gọi api lấy lịch chiếu theo hệ thống rạp
-        this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap).subscribe();
+
+        zip(
+          // Gọi api lấy cụm rạp theo hệ thống
+          this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap),
+          // Gọi api lấy lịch chiếu theo hệ thống rạp
+          this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap)
+        ).subscribe((res) => {
+          console.log(res[0][0])
+          this.chonPhimChieu(res[0][0].maCumRap);
+        });
       });
     }
   }
@@ -47,15 +54,5 @@ export class ListCinemaComponent implements OnInit {
       item.maCumRap === maCumRap
     );
     console.log(this.rapDangChon, this.lichChieu);
-
-    //tách data dsPhim và dsRap
-    const { danhSachRap, ...chiTietRap } = this.rapDangChon;
-    this.danhSachRap = danhSachRap;
-    const { danhSachPhim, ...ctRap } = this.lichChieu;
-    this.danhSachPhim = danhSachPhim;
-
-    // console.log(this.danhSachRap, this.danhSachPhim);
-
-
   }
 }

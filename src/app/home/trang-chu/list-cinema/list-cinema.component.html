@@ -17,9 +17,9 @@
         <li *ngFor="let phim of lichChieu.danhSachPhim">
           <img [src]="phim.hinhAnh" width="90" height="110">
           <p>{{phim.tenPhim}}</p>
-          <div *ngFor="let xuatchieu of danhSachPhim[0].lstLichChieuTheoPhim">
-            ngày chiếu: {{xuatchieu.ngayChieuGioChieu | date: "dd/MM/yyyy"}},
-            giờ chiếu: {{xuatchieu.ngayChieuGioChieu | date: "hh:mm"}}
+          <div>
+            <a *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice:0:5" class="row">
+              {{xuatChieu.ngayChieuGioChieu | date: "hh : mm"}}</a>
           </div>
         </li>
       </ul>
