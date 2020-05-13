@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
+import { maroon } from "color-name";
+import { zip } from "rxjs";
 
 @Component({
   selector: "app-list-cinema",
@@ -20,13 +22,13 @@ export class ListCinemaComponent implements OnInit {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
         console.log(res[0].maHeThongRap);
         // Gọi api lấy cụm rạp theo hệ thống
-        this.cinemaService
-          .layCumRapTheoHeThong(res[0].maHeThongRap)
-          .subscribe();
-        // Gọi api lấy lịch chiếu theo hệ thống rạp
-        this.cinemaService
-          .layThongTinLichChieuRap(res[0].maHeThongRap)
-          .subscribe();
+        zip(
+          this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap),
+          // Gọi api lấy lịch chiếu theo hệ thống rạp
+          this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap)
+        ).subscribe(res => {
+          this.chonPhimChieu(res[0][0].maCumRap);
+        });
       });
     }
   }
@@ -34,6 +36,15 @@ export class ListCinemaComponent implements OnInit {
   chonHeThongRap(maHeThongRap: string) {
     this.cinemaService.layCumRapTheoHeThong(maHeThongRap).subscribe();
     this.cinemaService.layThongTinLichChieuRap(maHeThongRap).subscribe();
+
+    zip(
+      this.cinemaService.layCumRapTheoHeThong(maHeThongRap),
+      // Gọi api lấy lịch chiếu theo hệ thống rạp
+      this.cinemaService.layThongTinLichChieuRap(maHeThongRap)
+    ).subscribe(res => {
+      this.chonPhimChieu(res[0][0].maCumRap);
+    });
+
   }
 
   chonPhimChieu(maCumRap: string) {
@@ -51,11 +62,6 @@ export class ListCinemaComponent implements OnInit {
     this.listDSP = danhSachPhim;
     const { danhSachRap, ...dsa } = this.rapDangChon;
     this.rapDangChon = danhSachRap;
-
-    //tim xuat chieu cua bộ phim
-    this.xuatChieu1Phim = this.listDSP[0].lstLichChieuTheoPhim.filter(item => {
-      item.maRap === this.rapDangChon.maRap;
-      console.log(item.ngayChieuGioChieu, item.maRap);
-    });
+    console.log(danhSachPhim);
   }
 }

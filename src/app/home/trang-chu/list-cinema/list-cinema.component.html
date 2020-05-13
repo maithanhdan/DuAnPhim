@@ -19,20 +19,28 @@
       </ul>
     </div>
     <div class="col-md-7">
-      <ul *ngIf="lichChieu">
+      <ul *ngIf="lichChieu; xuatChieu1Phim">
         <li *ngFor="let phim of lichChieu.danhSachPhim">
           <img [src]="phim.hinhAnh" width="90" height="110" />
           {{ phim.tenPhim }}
           <div
-            *ngFor="let xuatChieu of listDSP[0].lstLichChieuTheoPhim  | slice: 0 : 3"
+            *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5"
             class="row"
           >
-            ngày chiếu : {{ xuatChieu.ngayChieuGioChieu | date: "dd/MM/yyy"}} ,
-            giờ chiếu :
-            {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm"}}
+            <!-- ngày chiếu : {{ xuatChieu.ngayChieuGioChieu | date: "dd/MM/yyy"}} , -->
+            <a
+            [routerLink]="['/checkout']"
+            [queryParams]="{ maLichChieu: xuatChieu.maLichChieu}"  
+            >
+              {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm" }}
+            </a>
+            <!-- {{xuatChieu.tenRap}} -->
           </div>
         </li>
       </ul>
     </div>
   </div>
 </div>
+
+<!-- [routerLink]="['/checkout']"
+            [querryParams]="maLichChieu:xuatChieu.maLichChieu"-->

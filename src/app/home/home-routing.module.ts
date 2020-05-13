@@ -14,14 +14,10 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', loadChildren: () => TrangChuModule },
-
-      // route theo params
-      // { path: 'detail/:id', loadChildren: () => MovieDetailModule },
-
-      // Route theo query params
+      
       { path: 'detail', loadChildren: () => MovieDetailModule },
       
-      { path: 'checkout/:id', loadChildren: () => CheckoutModule },
+      { path: 'checkout', loadChildren: () => CheckoutModule },
     ],
   },
 ];

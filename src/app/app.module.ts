@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
     CoreModule,
     AuthModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
