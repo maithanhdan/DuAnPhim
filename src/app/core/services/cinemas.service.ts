@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { ApiService } from "./api.service";
 import { Observable, BehaviorSubject } from "rxjs";
 import { tap } from "rxjs/operators";
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: "root"

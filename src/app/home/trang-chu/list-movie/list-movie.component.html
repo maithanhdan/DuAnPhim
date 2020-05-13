@@ -1,13 +1,6 @@
 <div class="container">
   <div class="row">
     <div *ngFor="let phim of dsPhim" class="col-md-3">
-      <!-- <div class="card">
-        <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
-        <div class="card-body">
-          <h4 class="card-title">{{ phim.tenPhim }}</h4>
-          <p class="card-text">{{ phim.moTa }}</p>
-        </div>
-      </div> -->
       <app-movie [phim]="phim"></app-movie>
     </div>
   </div>

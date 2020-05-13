@@ -18,7 +18,6 @@
       </li>
     </ul>
     <div class="col-md-9">
-        
       <p class="cinema" (click)="chonNgayChieu('2019-01-01')">01</p>
 
       <div *ngFor="let cumRap of cinemasService.cumRapTheoHeThong()">
@@ -26,7 +25,12 @@
         <div
           *ngFor="let lichchieu of filterLichChieuTheoCumRap(cumRap.maCumRap)"
         >
-          {{ lichchieu.ngayChieuGioChieu | date: "hh:mm" }}
+          <a
+            [routerLink]="['/checkout']"
+            [queryParams]="{ maLichChieu: lichchieu.maLichChieu }"
+          >
+            {{ lichchieu.ngayChieuGioChieu | date: "hh:mm" }}</a
+          >
         </div>
       </div>
     </div>

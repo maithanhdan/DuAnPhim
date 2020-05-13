@@ -1,0 +1,31 @@
+.step-checkout .left-step ul li.active {
+    color: #fb4226;
+   
+}
+.step-checkout .left-step ul li {
+    font-family: "SF Medium";
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 30px;
+    line-height: 80px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.step-checkout {
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    z-index: 3;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+}
+
+.step-checkout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.screen{
+    text-align: center;
+}

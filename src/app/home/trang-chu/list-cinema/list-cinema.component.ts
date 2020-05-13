@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
-import { zip } from 'rxjs';
+import { maroon } from "color-name";
+import { zip } from "rxjs";
 
 @Component({
   selector: "app-list-cinema",
@@ -8,31 +9,24 @@ import { zip } from 'rxjs';
   styleUrls: ["./list-cinema.component.scss"]
 })
 export class ListCinemaComponent implements OnInit {
-  rapDangChon: any;
+  constructor(public cinemaService: CinemasService) {}
   lichChieu: any;
-  danhSachRap: any;
-  danhSachPhim: any;
-  xuatChieuPhim: any;
-
-  constructor(
-    public cinemaService: CinemasService,
-  ) { }
-  // heThongRap:any
-
+  rapDangChon: any;
+  xuatChieu1Phim: any;
+  listDSP: any;
   ngOnInit(): void {
     // hàm subscribe sẽ chờ kết quả trả về từ Observable
 
     const heThongRap = this.cinemaService.heThongRap();
     if (heThongRap.length === 0) {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
-
+        console.log(res[0].maHeThongRap);
+        // Gọi api lấy cụm rạp theo hệ thống
         zip(
-          // Gọi api lấy cụm rạp theo hệ thống
           this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap),
           // Gọi api lấy lịch chiếu theo hệ thống rạp
           this.cinemaService.layThongTinLichChieuRap(res[0].maHeThongRap)
-        ).subscribe((res) => {
-          console.log(res[0][0])
+        ).subscribe(res => {
           this.chonPhimChieu(res[0][0].maCumRap);
         });
       });
@@ -42,17 +36,25 @@ export class ListCinemaComponent implements OnInit {
   chonHeThongRap(maHeThongRap: string) {
     this.cinemaService.layCumRapTheoHeThong(maHeThongRap).subscribe();
     this.cinemaService.layThongTinLichChieuRap(maHeThongRap).subscribe();
+
+    zip(
+      this.cinemaService.layCumRapTheoHeThong(maHeThongRap),
+      // Gọi api lấy lịch chiếu theo hệ thống rạp
+      this.cinemaService.layThongTinLichChieuRap(maHeThongRap)
+    ).subscribe(res => {
+      this.chonPhimChieu(res[0][0].maCumRap);
+    });
+
   }
 
   chonPhimChieu(maCumRap: string) {
     //  Đầu tiên dựa vào maCumRap tìm ra cái obj của rạp đó
-    this.rapDangChon = this.cinemaService.cumRapTheoHeThong().find(item =>
-      item.maCumRap === maCumRap
-    );
+    this.rapDangChon = this.cinemaService
+      .cumRapTheoHeThong()
+      .find(item => item.maCumRap === maCumRap);
     // Tiếp theo lấy  lịch chiếu của cái rạp đang chọn dựa vào maCumRap
-    this.lichChieu = this.cinemaService.lichChieuHeThong()[0].lstCumRap.find(item =>
-      item.maCumRap === maCumRap
-    );
-    console.log(this.rapDangChon, this.lichChieu);
+    this.lichChieu = this.cinemaService
+      .lichChieuHeThong()[0]
+      .lstCumRap.find(item => item.maCumRap === maCumRap);
   }
 }
