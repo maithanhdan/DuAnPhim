@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-thanh-toan',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./thanh-toan.component.scss']
 })
 export class ThanhToanComponent implements OnInit {
-
+  @Input() thongTinPhim: any;
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(this.thongTinPhim)
   }
 
 }

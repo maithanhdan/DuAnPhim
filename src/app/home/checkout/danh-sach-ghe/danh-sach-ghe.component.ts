@@ -1,4 +1,4 @@
-import { Component, OnInit} from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { UsersService } from "src/app/core/services/users.service";
 import { ActivatedRoute } from '@angular/router';
 import { CheckoutService } from 'src/app/core/services/checkout.service';
@@ -10,18 +10,11 @@ import { CheckoutService } from 'src/app/core/services/checkout.service';
 })
 export class DanhSachGheComponent implements OnInit {
   user: any;
-  danhSachGhe: any;
+  @Input() danhSachGhe: any;
 
-  constructor(private userServive: UsersService,
-    private activatedRoute: ActivatedRoute,
-    private checkoutSevice: CheckoutService) { }
+  constructor(private userServive: UsersService) { }
   ngOnInit(): void {
     this.user = this.userServive.getCurrentUser();
-    // lay mang ghe
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.checkoutSevice.layDanhSachPhongVe(params.maLichChieu).subscribe(rs => {
-        this.danhSachGhe=rs;
-      })
-    })
+    console.log(this.danhSachGhe);
   }
 }
