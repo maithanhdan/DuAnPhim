@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GheComponent implements OnInit {
 
   constructor() { }
-  @Input() ghe:any;
+  @Input() ghe: any;
   ngOnInit(): void {
   }
 

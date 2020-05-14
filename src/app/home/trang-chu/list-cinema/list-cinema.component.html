@@ -2,18 +2,12 @@
   <div class="row">
     <div class="col-md-5 row">
       <ul class="col-md-2">
-        <li
-          *ngFor="let heThongRap of cinemaService.heThongRap()"
-          (click)="chonHeThongRap(heThongRap.maHeThongRap)"
-        >
+        <li *ngFor="let heThongRap of cinemaService.heThongRap()" (click)="chonHeThongRap(heThongRap.maHeThongRap)">
           <img [src]="heThongRap.logo" width="50" height="50" />
         </li>
       </ul>
       <ul class="col-md-10">
-        <li
-          *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()"
-          (click)="chonPhimChieu(cumRap.maCumRap)"
-        >
+        <li *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()" (click)="chonPhimChieu(cumRap.maCumRap)">
           {{ cumRap.tenCumRap }}
         </li>
       </ul>
@@ -23,24 +17,13 @@
         <li *ngFor="let phim of lichChieu.danhSachPhim">
           <img [src]="phim.hinhAnh" width="90" height="110" />
           {{ phim.tenPhim }}
-          <div
-            *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5"
-            class="row"
-          >
-            <!-- ngày chiếu : {{ xuatChieu.ngayChieuGioChieu | date: "dd/MM/yyy"}} , -->
-            <a
-            [routerLink]="['/checkout']"
-            [queryParams]="{ maLichChieu: xuatChieu.maLichChieu}"  
-            >
+          <div *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5" class="row">
+            <a [routerLink]="['/checkout']" [queryParams]="{ maLichChieu: xuatChieu.maLichChieu}">
               {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm" }}
             </a>
-            <!-- {{xuatChieu.tenRap}} -->
           </div>
         </li>
       </ul>
     </div>
   </div>
 </div>
-
-<!-- [routerLink]="['/checkout']"
-            [querryParams]="maLichChieu:xuatChieu.maLichChieu"-->

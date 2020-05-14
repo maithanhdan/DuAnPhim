@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
-import { maroon } from "color-name";
 import { zip } from "rxjs";
 
 @Component({
@@ -56,13 +55,5 @@ export class ListCinemaComponent implements OnInit {
     this.lichChieu = this.cinemaService
       .lichChieuHeThong()[0]
       .lstCumRap.find(item => item.maCumRap === maCumRap);
-
-    //bốc tách data
-    const { danhSachPhim, ...asd } = this.lichChieu;
-    this.listDSP = danhSachPhim;
-    const { danhSachRap, ...dsa } = this.rapDangChon;
-    this.rapDangChon = danhSachRap;
-    console.log(danhSachPhim);
-
   }
 }
