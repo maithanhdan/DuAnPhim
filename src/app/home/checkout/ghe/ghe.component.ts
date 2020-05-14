@@ -6,10 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./ghe.component.scss']
 })
 export class GheComponent implements OnInit {
-
-  constructor() { }
   @Input() ghe: any;
+  constructor() { }
   ngOnInit(): void {
+    console.log(this.ghe);
   }
 
 }
