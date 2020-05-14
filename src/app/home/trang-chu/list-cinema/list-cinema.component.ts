@@ -63,5 +63,6 @@ export class ListCinemaComponent implements OnInit {
     const { danhSachRap, ...dsa } = this.rapDangChon;
     this.rapDangChon = danhSachRap;
     console.log(danhSachPhim);
+
   }
 }
