@@ -25,7 +25,9 @@
       </div>
       <div class="list-seat">
         <div class="row">
-          <!-- <app-ghe *ngFor="let ghe of danhSachGhe; let i= index" [ghe]="ghe"></app-ghe> -->
+          <app-ghe 
+          *ngFor="let ghe of mangGhe.danhSachGhe ; let i= index" [ghe]="ghe"
+          ></app-ghe>
         </div>
       </div>
     </div>

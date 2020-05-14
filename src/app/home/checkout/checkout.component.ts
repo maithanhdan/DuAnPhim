@@ -8,8 +8,10 @@ import { CheckoutService } from "./../../core/services/checkout.service";
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  thongTinPhim: any[];
-  danhSachGhe: any[];
+  thongTinPhim: any;
+  danhSachGhe: any;
+
+  maLichChieu:any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -21,7 +23,8 @@ export class CheckoutComponent implements OnInit {
       this.checkoutSevice.LayDanhSachPhongVe(params.maLichChieu).subscribe(rs => {
         const { thongTinPhim, ...danhSachGhe } = rs
         this.thongTinPhim = thongTinPhim;
-        this.danhSachGhe = danhSachGhe;
+        this.danhSachGhe = danhSachGhe; 
+        this.maLichChieu=params.maLichChieu
       })
     })
   }
