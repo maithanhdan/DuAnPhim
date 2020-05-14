@@ -20,7 +20,6 @@ export class ListCinemaComponent implements OnInit {
     const heThongRap = this.cinemaService.heThongRap();
     if (heThongRap.length === 0) {
       this.cinemaService.layThongTinHeThongRap().subscribe(res => {
-        console.log(res[0].maHeThongRap);
         // Gọi api lấy cụm rạp theo hệ thống
         zip(
           this.cinemaService.layCumRapTheoHeThong(res[0].maHeThongRap),

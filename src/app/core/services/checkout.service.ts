@@ -8,9 +8,9 @@ import { tap } from "rxjs/operators";
   providedIn: "root"
 })
 export class CheckoutService {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
   private phongVeSubject = new BehaviorSubject([]);
-  public LayDanhSachPhongVe(maLichChieu:string): Observable<any> {
+  public layDanhSachPhongVe(maLichChieu: string): Observable<any> {
     let params = new HttpParams();
     params = params.append("MaLichChieu", maLichChieu);
     return this.api.get("QuanLyDatVe/LayDanhSachPhongVe", { params }).pipe(
@@ -19,6 +19,7 @@ export class CheckoutService {
       })
     );
   }
+
   public danhSachphongVe() {
     return this.phongVeSubject.value;
   }

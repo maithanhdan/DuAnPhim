@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CheckoutService } from "./../../core/services/checkout.service";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-checkout',
@@ -11,19 +9,9 @@ export class CheckoutComponent implements OnInit {
   thongTinPhim: any[];
   danhSachGhe: any[];
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private checkoutSevice: CheckoutService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.checkoutSevice.LayDanhSachPhongVe(params.maLichChieu).subscribe(rs => {
-        const { thongTinPhim, ...danhSachGhe } = rs
-        this.thongTinPhim = thongTinPhim;
-        this.danhSachGhe = danhSachGhe;
-      })
-    })
   }
 
 }

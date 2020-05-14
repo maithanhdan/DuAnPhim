@@ -9,5 +9,6 @@ export class BannerComponent implements OnInit {
   @Input() chiTietPhim: any;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
