@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ThanhToanComponent implements OnInit {
   @Input() thongTinPhim: any;
+  danhSachGhe: any[];
   constructor() { }
 
   ngOnInit(): void {
-    // console.log(this.thongTinPhim)
+    console.log(this.thongTinPhim)
   }
 
 }

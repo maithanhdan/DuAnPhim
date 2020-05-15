@@ -19,7 +19,8 @@ export class CheckoutComponent implements OnInit {
       this.checkoutSevice.layDanhSachPhongVe(params.maLichChieu).subscribe(rs => {
         const { danhSachGhe, ...thongTinPhim } = rs;
         this.danhSachGhe = danhSachGhe;
-        this.thongTinPhim = thongTinPhim
+        this.thongTinPhim = thongTinPhim.thongTinPhim;
+        console.log(this.danhSachGhe, this.thongTinPhim);
       })
     })
   }

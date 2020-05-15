@@ -1,5 +1,24 @@
-<div>
-    <div>
-        <!-- <p>{{thongTinPhim.tenPhim}}</p> -->
+<div class="contentfullright">
+    <div class="total">
+        <p class="cash" id="totalcost">0 đ</p>
     </div>
+    <div class="moviename">
+        <img [src]="thongTinPhim.hinhAnh" width="90" height="110">
+        <p>Tên phim: <b style="font-size: 25px;">{{thongTinPhim.tenPhim}}</b></p>
+    </div>
+    <div class="addresscinema">
+        <span class="cinemaname">Cụm rạp: {{thongTinPhim.tenCumRap}}</span>
+    </div>
+    <div class="timemovie">
+        <div class="hour">Ngày chiếu: {{thongTinPhim.ngayChieu}} - {{thongTinPhim.gioChieu}} -
+            {{thongTinPhim.tenRap}}</div>
+    </div>
+    <div class="chair row">
+        <div class="info col-sm-7 col-xs-7">
+            <span style="color: #fb4226">Ghế</span>
+            <span class="title"></span>
+        </div>
+        <div class="totalchair col-sm-5 col-xs-5">0 đ</div>
+    </div>
+    <button class="btn btn-success">Đặt vé</button>
 </div>
