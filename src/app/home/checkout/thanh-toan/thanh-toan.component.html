@@ -1,6 +1,8 @@
 <div class="contentfullright">
     <div class="total">
-        <p class="cash" id="totalcost">0 đ</p>
+        <p class="cash" id="totalcost">
+            {{tinhTongTien()}}đ
+          </p>
     </div>
     <div>
         <p>{{thongTinPhim.tenPhim}}</p>
@@ -18,10 +20,12 @@
     </div>
     <div class="chair row">
         <div class="info col-sm-7 col-xs-7">
-            <span style="color: #fb4226">Ghế</span>
-            <span class="title"></span>
+            <span style="color: #fb4226">Ghế : </span>
+            <span style="color: #fb4226" class="title" *ngFor="let ghe of mangGheThanhToan">
+                {{ghe.SoGhe}}
+            </span>
         </div>
-        <div class="totalchair col-sm-5 col-xs-5">0 đ</div>
+        <div class="totalchair col-sm-5 col-xs-5"> {{tinhTongTien()}}đ</div>
     </div>
     <button class="btn btn-success">Đặt vé</button>
 </div>

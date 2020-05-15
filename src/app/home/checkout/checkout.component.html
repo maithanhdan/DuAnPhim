@@ -1,9 +1,15 @@
 <div class="row">
-    <div class="col-md-8">
-        <app-danh-sach-ghe [danhSachGhe]="danhSachGhe"></app-danh-sach-ghe>
-    </div>
-    <div class="col-md-4" id="rightcheckout">
-        <app-thanh-toan [thongTinPhim]="thongTinPhim"></app-thanh-toan>
-    </div>
+  <div class="col-md-8">
+    <app-danh-sach-ghe
+      [danhSachGhe]="danhSachGhe"
+      (eventMangGheDangDat)="mangGheDangDat($event)"
+    ></app-danh-sach-ghe>
+  </div>
+  <div class="col-md-4" id="rightcheckout">
+    <app-thanh-toan
+      [thongTinPhim]="thongTinPhim"
+      [mangGheThanhToan]="mangGheThanhToan"
+    ></app-thanh-toan>
+  </div>
 </div>
 <router-outlet></router-outlet>

@@ -1,4 +1,10 @@
-<button [disabled]="ghe.daDat" class="ghe btn btn-secondary" [ngClass]="{  gheDaDat: ghe.daDat, gheDangDat: dangDat }"
-  (click)="datGhe()">
-  {{ ghe.tenGhe }}
+<button
+  [disabled]="ghe.daDat"
+  class="ghe btn btn-secondary"
+  [ngClass]="{
+    gheDaDat: ghe.daDat,
+    gheDangDat: dangDat
+  }"
+  (click)="datGhe()"
+>
 </button>
