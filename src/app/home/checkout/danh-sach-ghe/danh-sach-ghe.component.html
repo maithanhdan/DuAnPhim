@@ -27,8 +27,7 @@
       <div class="list-seat">
         <div class="row ">
           <app-ghe
-            *ngFor="let ghe of danhSachGhe | slice: 0:91"
-            class="col-md-0.9"
+            *ngFor="let ghe of danhSachGhe"
             [ghe]="ghe"
             (eventDatGhe)="datGhe($event)"
           >
@@ -39,3 +38,6 @@
     <div class="note-seat"></div>
   </div>
 </div>
+<p *ngIf="mangGheDangDat.length > 0">
+  Tổng tiền ghế đang đặt $ :{{ tinhTongTien() }}
+</p>

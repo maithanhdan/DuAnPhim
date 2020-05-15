@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
-import { EventEmitter } from "events";
-
+import { Component, OnInit, Input, Output,EventEmitter } from "@angular/core";
 @Component({
   selector: "app-ghe",
   templateUrl: "./ghe.component.html",
@@ -21,6 +19,7 @@ export class GheComponent implements OnInit {
       SoGhe: this.ghe.stt,
       Gia: this.ghe.giaVe,
       DangDat: this.dangDat,
+      LoaiGhe:this.ghe.loaiGhe,
     };
     this.eventDatGhe.emit(gheDangDat);
   }
