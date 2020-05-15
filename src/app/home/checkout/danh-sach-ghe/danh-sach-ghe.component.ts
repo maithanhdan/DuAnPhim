@@ -9,7 +9,7 @@ import { Ghe } from "./../../../core/models/ghe";
 })
 export class DanhSachGheComponent implements OnInit {
   user: any;
-  @Input() danhSachGhe: Ghe[]=[];
+  @Input() danhSachGhe: any;
   mangGheDangDat: any[] = [];
   constructor(private userServive: UsersService) { }
   ngOnInit(): void {

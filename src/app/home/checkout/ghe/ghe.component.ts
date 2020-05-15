@@ -16,7 +16,7 @@ export class GheComponent implements OnInit {
     console.log(this.ghe);
   }
   datGhe() {
-    // this.dangDat = !this.dangDat;
+    this.dangDat = !this.dangDat;
     // const gheDangDat = {
     //   SoGhe: this.ghe.stt,
     //   Gia: this.ghe.giaVe,
