@@ -30,6 +30,7 @@
             *ngFor="let ghe of danhSachGhe | slice: 0:90"
             class="col-md-0.9"
             [ghe]="ghe"
+            (eventDatGhe)="datGhe($event)"
           >
           </app-ghe>
         </div>
