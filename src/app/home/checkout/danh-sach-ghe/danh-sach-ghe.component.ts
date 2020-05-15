@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { UsersService } from "src/app/core/services/users.service";
-import { ActivatedRoute } from '@angular/router';
-import { CheckoutService } from 'src/app/core/services/checkout.service';
+import { Ghe } from "./../../../core/models/ghe";
+
 
 @Component({
   selector: "app-danh-sach-ghe",
@@ -10,11 +10,15 @@ import { CheckoutService } from 'src/app/core/services/checkout.service';
 })
 export class DanhSachGheComponent implements OnInit {
   user: any;
-  @Input() danhSachGhe: any;
-
+  @Input() danhSachGhe: Ghe[]=[];
+  // mangGhe:Ghe[]=[]
+  mangGheDangDat: any[] = [];
   constructor(private userServive: UsersService) { }
   ngOnInit(): void {
     this.user = this.userServive.getCurrentUser();
     console.log(this.danhSachGhe);
   }
+ datGhe(gheDangDat:any){
+   
+ }
 }

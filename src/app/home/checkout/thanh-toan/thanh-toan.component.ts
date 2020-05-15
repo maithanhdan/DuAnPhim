@@ -11,6 +11,8 @@ export class ThanhToanComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(this.thongTinPhim)
+    console.log(this.thongTinPhim);
+    
   }
 
 }
