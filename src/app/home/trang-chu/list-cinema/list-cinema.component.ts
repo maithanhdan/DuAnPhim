@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CinemasService } from "src/app/core/services/cinemas.service";
-import { maroon } from "color-name";
 import { zip } from "rxjs";
 
 @Component({

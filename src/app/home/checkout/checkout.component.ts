@@ -8,8 +8,10 @@ import { CheckoutService } from 'src/app/core/services/checkout.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  thongTinPhim: any[];
-  danhSachGhe: any[];
+  thongTinPhim: any;
+  danhSachGhe: any;
+
+  maLichChieu:any;
 
   constructor(private activatedRoute: ActivatedRoute,
     private checkoutSevice: CheckoutService) { }

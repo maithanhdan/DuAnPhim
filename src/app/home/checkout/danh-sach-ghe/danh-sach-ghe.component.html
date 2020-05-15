@@ -1,16 +1,17 @@
-<div class="step-checkout " style="display: flex; justify-content: space-between">
+<div
+  class="step-checkout "
+  style="display: flex; justify-content: space-between"
+>
   <div class="left-step">
     <ul class="ng-scope">
       <li class="active">
         <span class="stepnumber">01 </span> CHỌN GHẾ & THANH TOÁN
       </li>
-      <li>
-        <span class="stepnumber">02 </span> KẾT QUẢ ĐẶT VÉ
-      </li>
+      <li><span class="stepnumber">02 </span> KẾT QUẢ ĐẶT VÉ</li>
     </ul>
   </div>
   <div class="right-step" style="line-height: 80px">
-    {{user.hoTen}}
+    {{ user.hoTen }}
   </div>
 </div>
 <div class="row">
@@ -21,12 +22,15 @@
   <div class="seat-map">
     <div class="seat-play">
       <div class="screen">
-        <img src="./../../../../assets/img/screen.PNG" alt="">
+        <img src="./../../../../assets/img/screen.PNG" alt="" />
       </div>
       <div class="list-seat">
-        <div class="row">
-          <app-ghe *ngFor="let ghe of danhSachGhe; let i=index" 
-          [ghe]="ghe">
+        <div class="row ">
+          <app-ghe
+            *ngFor="let ghe of danhSachGhe | slice: 0:91"
+            class="col-md-0.9"
+            [ghe]="ghe"
+          >
           </app-ghe>
         </div>
       </div>
