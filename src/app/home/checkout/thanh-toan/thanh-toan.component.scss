@@ -1,0 +1,56 @@
+.contentfullright {
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+.total {
+    position: relative;
+    border-bottom: 1px dashed #e9e9e9;
+    height: 80px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 36px;
+    color: #44c020 !important;
+    .cash {
+        width: 300px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+.moviename {
+    border-bottom: 1px dashed #e9e9e9;
+    padding: 3px 0;
+    font-family: "SF Medium";
+    font-size: 16px;
+    img {
+        margin-bottom: 8px;
+    }
+}
+
+.addresscinema,
+.timemovie {
+    border-bottom: 1px dashed #e9e9e9;
+    padding: 10px 0;
+}
+
+.chair {
+    padding-bottom: 12.5px;
+    padding-top: 12.5px;
+    margin-bottom: 12.5px;
+    .totalchair {
+        font-family: "SF Medium";
+        text-align: right;
+        color: #44c020 !important;
+        font-size: 16px;
+    }
+}
+
+.btn{
+    width: 100%;
+}
