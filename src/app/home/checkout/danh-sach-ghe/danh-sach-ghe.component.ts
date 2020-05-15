@@ -11,6 +11,7 @@ export class DanhSachGheComponent implements OnInit {
   user: any;
 
   @Input() danhSachGhe: Ghe[] = [];
+  @Input() mangGheThanhToan: any;
   @Output() eventMangGheDangDat = new EventEmitter();
   mangGheDangDat: any = [];
   thanhTien: any;

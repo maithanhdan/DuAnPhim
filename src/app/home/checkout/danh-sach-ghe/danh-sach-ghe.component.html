@@ -29,6 +29,7 @@
           <app-ghe
             *ngFor="let ghe of danhSachGhe | slice: 0:126"
             [ghe]="ghe"
+            [mangGheThanhToan]="mangGheThanhToan"
             (eventDatGhe)="datGhe($event)"
           >
           </app-ghe>

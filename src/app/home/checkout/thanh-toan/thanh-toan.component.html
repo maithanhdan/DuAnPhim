@@ -2,7 +2,7 @@
     <div class="total">
         <p class="cash" id="totalcost">
             {{tinhTongTien()}}đ
-          </p>
+        </p>
     </div>
     <div>
         <p>{{thongTinPhim.tenPhim}}</p>
@@ -26,6 +26,9 @@
             </span>
         </div>
         <div class="totalchair col-sm-5 col-xs-5"> {{tinhTongTien()}}đ</div>
+    </div>
+    <div *ngIf="mangGheThanhToan.length == 8">
+        <small style="color: red">Bạn đã chọn đúng số ghế quy định</small>
     </div>
     <button class="btn btn-success">Đặt vé</button>
 </div>

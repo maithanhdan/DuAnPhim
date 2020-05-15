@@ -11,17 +11,19 @@ export class CheckoutComponent implements OnInit {
   thongTinPhim: any;
   danhSachGhe: any;
   maLichChieu: any;
-  mangGheThanhToan: any=[];
+  mangGheThanhToan: any = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private checkoutSevice: CheckoutService
-  ) {}
+  ) { }
 
   mangGheDangDat(gheDangDat: any) {
     if (gheDangDat.DangDat) {
-      this.mangGheThanhToan.push(gheDangDat);
-    }else{
+      if (this.mangGheThanhToan.length < 8) {
+        this.mangGheThanhToan.push(gheDangDat);
+      }
+    } else {
       this.mangGheThanhToan = this.mangGheThanhToan.filter(
         ghe => ghe.SoGhe !== gheDangDat.SoGhe,
       );

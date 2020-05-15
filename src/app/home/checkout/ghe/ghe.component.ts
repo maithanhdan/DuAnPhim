@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { CheckoutComponent } from '../checkout.component';
 @Component({
   selector: "app-ghe",
   templateUrl: "./ghe.component.html",
@@ -6,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class GheComponent implements OnInit {
   @Input() ghe: any;
+  @Input() mangGheThanhToan: any;
   @Output() eventDatGhe = new EventEmitter();
   dangDat: boolean = false;
 
@@ -14,13 +16,15 @@ export class GheComponent implements OnInit {
     console.log(this.ghe);
   }
   datGhe() {
-    this.dangDat = !this.dangDat;
-    const gheDangDat = {
-      SoGhe: this.ghe.stt,
-      Gia: this.ghe.giaVe,
-      DangDat: this.dangDat,
-      LoaiGhe: this.ghe.loaiGhe,
-    };
-    this.eventDatGhe.emit(gheDangDat);
+    if (this.mangGheThanhToan.length < 8) {
+      this.dangDat = !this.dangDat;
+      const gheDangDat = {
+        SoGhe: this.ghe.stt,
+        Gia: this.ghe.giaVe,
+        DangDat: this.dangDat,
+        LoaiGhe: this.ghe.loaiGhe,
+      };
+      this.eventDatGhe.emit(gheDangDat);
+    }
   }
 }
