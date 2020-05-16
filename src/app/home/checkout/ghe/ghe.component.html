@@ -3,7 +3,8 @@
   class="ghe btn btn-secondary"
   [ngClass]="{
     gheDaDat: ghe.daDat,
-    gheDangDat: dangDat
+    gheDangDat: dangDat==true,
+    gheDangDatVip: ghe.loaiGhe=='Vip'
   }"
   (click)="datGhe()"
 >

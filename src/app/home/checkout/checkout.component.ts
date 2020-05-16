@@ -16,18 +16,19 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private checkoutSevice: CheckoutService
-  ) { }
+  ) {}
 
   mangGheDangDat(gheDangDat: any) {
     if (gheDangDat.DangDat) {
-      if (this.mangGheThanhToan.length < 8) {
+      if (this.mangGheThanhToan.length <= 7) {
         this.mangGheThanhToan.push(gheDangDat);
       }
     } else {
       this.mangGheThanhToan = this.mangGheThanhToan.filter(
-        ghe => ghe.SoGhe !== gheDangDat.SoGhe,
+        ghe => ghe.SoGhe !== gheDangDat.SoGhe
       );
     }
+    console.log(this.mangGheThanhToan);
   }
 
   ngOnInit(): void {

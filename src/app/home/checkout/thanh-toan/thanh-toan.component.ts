@@ -12,6 +12,18 @@ export class ThanhToanComponent implements OnInit {
 
   ngOnInit(): void {}
   
+  // mangGheDangDat(gheDangDat: any) {
+  //   if (gheDangDat.DangDat) {
+  //     if (this.mangGheThanhToan.length <= 7) {
+  //       this.mangGheThanhToan.push(gheDangDat);
+  //     }
+  //   } else {
+  //     this.mangGheThanhToan = this.mangGheThanhToan.filter(
+  //       ghe => ghe.SoGhe !== gheDangDat.SoGhe
+  //     );
+  //   }
+  // }
+
   tinhTongTien() {
     return (this.mangGheThanhToan.reduce(
       (tongTien, gheDangDat) => {

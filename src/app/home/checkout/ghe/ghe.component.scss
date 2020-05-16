@@ -12,7 +12,10 @@
 .gheDangDat {
   background-color: green;
 }
-.gheVip{
+.gheDangDatVip{
   background-color: yellow;
+}
 
+.gheDangDatVip:active{
+  background-color: green;
 }
