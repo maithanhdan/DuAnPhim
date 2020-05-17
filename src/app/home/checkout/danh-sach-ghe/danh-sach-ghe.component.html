@@ -27,7 +27,7 @@
       <div class="list-seat">
         <div class="row ">
           <app-ghe
-            *ngFor="let ghe of danhSachGhe | slice: 0:126"
+            *ngFor="let ghe of danhSachGhe"
             [ghe]="ghe"
             [mangGheThanhToan]="mangGheThanhToan"
             (eventDatGhe)="datGhe($event)"
