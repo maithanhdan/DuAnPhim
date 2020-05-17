@@ -22,6 +22,6 @@ export class DanhSachGheComponent implements OnInit {
   }
 
   datGhe(gheDangDat: any) {
-    this.eventMangGheDangDat.emit(gheDangDat); //gheDangDat.DangDat khi click vào  = true
+    this.eventMangGheDangDat.emit(gheDangDat);
   }
 }
