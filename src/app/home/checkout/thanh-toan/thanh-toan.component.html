@@ -28,7 +28,7 @@
         <div class="totalchair col-sm-5 col-xs-5"> {{tinhTongTien()}}đ</div>
     </div>
     <div *ngIf="mangGheThanhToan.length == 8">
-        <small style="color: red">Bạn đã chọn đúng số ghế quy định</small>
+        <small style="color: red">Bạn không thể chọn quá 8 ghế</small>
     </div>
-    <button class="btn btn-success">Đặt vé</button>
+    <button class="btn btn-success" [disabled]="mangGheThanhToan.length < 1">Đặt vé</button>
 </div>

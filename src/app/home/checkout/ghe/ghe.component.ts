@@ -26,5 +26,15 @@ export class GheComponent implements OnInit {
       };
       this.eventDatGhe.emit(gheDangDat);
     }
+    else if (this.dangDat) {
+      this.dangDat = !this.dangDat;
+      const gheDangDat = {
+        SoGhe: this.ghe.stt,
+        Gia: this.ghe.giaVe,
+        DangDat: this.dangDat,
+        LoaiGhe: this.ghe.loaiGhe,
+      };
+      this.eventDatGhe.emit(gheDangDat);
+    }
   }
 }
