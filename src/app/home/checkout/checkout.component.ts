@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   mangGheDangDat(gheDangDat: any) {
     if (gheDangDat.DangDat) {
-      if (this.mangGheThanhToan.length <= 7) {
+      if (this.mangGheThanhToan.length <8) {
         this.mangGheThanhToan.push(gheDangDat);
       }
     } else {
