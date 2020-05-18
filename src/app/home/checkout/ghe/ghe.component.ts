@@ -16,17 +16,7 @@ export class GheComponent implements OnInit {
     console.log(this.ghe);
   }
   datGhe() {
-    if (this.mangGheThanhToan.length < 8) {
-      this.dangDat = !this.dangDat;
-      const gheDangDat = {
-        SoGhe: this.ghe.stt,
-        Gia: this.ghe.giaVe,
-        DangDat: this.dangDat,
-        LoaiGhe: this.ghe.loaiGhe,
-      };
-      this.eventDatGhe.emit(gheDangDat);
-    }
-    else if (this.dangDat) {
+    if (this.mangGheThanhToan.length < 8 || this.dangDat) {
       this.dangDat = !this.dangDat;
       const gheDangDat = {
         SoGhe: this.ghe.stt,
