@@ -1,7 +1,4 @@
-<div
-  class="step-checkout "
-  style="display: flex; justify-content: space-between"
->
+<div class="step-checkout " style="display: flex; justify-content: space-between">
   <div class="left-step">
     <ul class="ng-scope">
       <li class="active">
@@ -26,16 +23,21 @@
       </div>
       <div class="list-seat">
         <div class="row ">
-          <app-ghe
-            *ngFor="let ghe of danhSachGhe | slice: 0:126"
-            [ghe]="ghe"
-            [mangGheThanhToan]="mangGheThanhToan"
-            (eventDatGhe)="datGhe($event)"
-          >
+          <app-ghe *ngFor="let ghe of danhSachGhe" [ghe]="ghe" [mangGheThanhToan]="mangGheThanhToan"
+            (eventDatGhe)="datGhe($event)">
           </app-ghe>
         </div>
       </div>
     </div>
-    <div class="note-seat"></div>
+    <div class="note-seat">
+      <div class="container" style="width:70%;margin:0 auto;">
+        <div class="row">
+          <div><button class="btn thuong"></button>thuong</div>
+          <div><button class="btn vip"></button>Vip</div>
+          <div><button class="btn dangChon"></button>Dang Chon</div>
+          <div><button class="btn khongDuocChon"></button> Da Chon</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

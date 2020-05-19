@@ -2,10 +2,9 @@
   [disabled]="ghe.daDat"
   class="ghe btn btn-secondary"
   [ngClass]="{
-    gheDaDat: ghe.daDat,
-    gheDangDatVip: ghe.loaiGhe=='Vip',
-    gheDangDat: dangDat==true
+    gheDangDat: dangDat,
+    gheVip: dangDat == false && ghe.loaiGhe == 'Vip',
+    gheDaDat: ghe.daDat
   }"
   (click)="datGhe()"
->
-</button>
+></button>
