@@ -1,5 +1,5 @@
 <div class="container mt-5" *ngIf="danhSachNguoiDung">
-  <input type="text" class="form-control"/>
+  <input type="text" [(ngModel)]="search" />
   <table class="table">
     <thead>
       <tr>
@@ -14,7 +14,9 @@
     <tbody>
       <tr
         *ngFor="
-          let user of danhSachNguoiDung| slice: startPageNumber:endPageNumber
+          let user of danhSachNguoiDung
+            | myFilter : search
+            | slice: startPageNumber:endPageNumber
         "
       >
         <td>{{ user.taiKhoan }}</td>

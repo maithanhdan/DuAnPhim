@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { DanhSachNguoiDungService } from "src/app/core/services/danh-sach-nguoi-dung.service";
-import { match } from 'minimatch';
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -11,6 +10,8 @@ export class DashboardComponent implements OnInit {
   danhSachNguoiDung: any[];
   startPageNumber = 0;
   endPageNumber = 10;
+
+  search:string;
 
   ngOnInit(): void {
     this.DSNguoiDung.layDanhSachNguoiDung().subscribe(rs => {
