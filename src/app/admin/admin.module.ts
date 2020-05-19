@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { FormsModule } from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -14,6 +15,6 @@ import { FormsModule } from "@angular/forms";
     MovieManagementComponent,
     DashboardComponent
   ],
-  imports: [CommonModule, AdminRoutingModule, FormsModule]
+  imports: [CommonModule, AdminRoutingModule, FormsModule,]
 })
 export class AdminModule {}

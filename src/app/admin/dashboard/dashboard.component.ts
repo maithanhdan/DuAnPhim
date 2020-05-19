@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DanhSachNguoiDungService } from "src/app/core/services/danh-sach-nguoi-dung.service";
+import { match } from 'minimatch';
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -7,7 +8,7 @@ import { DanhSachNguoiDungService } from "src/app/core/services/danh-sach-nguoi-
 })
 export class DashboardComponent implements OnInit {
   constructor(private DSNguoiDung: DanhSachNguoiDungService) {}
-  danhSachNguoiDung: any;
+  danhSachNguoiDung: any[];
   startPageNumber = 0;
   endPageNumber = 10;
 
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getArrayFromNumber(length) {
-    return new Array(length / 25);
+    return new Array(Math.ceil(length /25));
   }
   updatePageNumber(pageNum) {
     this.startPageNumber = pageNum * 10;
