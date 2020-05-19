@@ -1,11 +1,22 @@
-<div class="row">
-  <div class="col-md-2" >
-    <app-user-management></app-user-management>
-    <app-movie-management></app-movie-management>
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Start Bootstrap</div>
+    <div class="list-group list-group-flush">
+      <app-user-management></app-user-management>
+      <app-movie-management></app-movie-management>
+    </div>
   </div>
-  <div class="col-md-10">
-    <router-outlet></router-outlet>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+      <div class="title">Dashboard</div>
+    </nav>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-
-

@@ -1,1 +1,61 @@
-<p>dashboard works!</p>
+<div class="container mt-5" *ngIf="danhSachNguoiDung">
+  <input type="text" class="form-control"/>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">tai khoan</th>
+        <th scope="col">mat khau</th>
+        <th scope="col">ho ten</th>
+        <th scope="col">email</th>
+        <th scope="col">so dien thoai</th>
+        <th scope="col">ma loai nguoi dung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let user of danhSachNguoiDung| slice: startPageNumber:endPageNumber
+        "
+      >
+        <td>{{ user.taiKhoan }}</td>
+        <td>{{ user.matKhau }}</td>
+        <td>{{ user.hoTen }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.soDt }}</td>
+        <td>{{ user.maLoaiNguoiDung }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+
+      <li
+        class="page-item"
+        *ngFor="
+          let i of getArrayFromNumber(danhSachNguoiDung.length);
+          let pageNumber = index
+        "
+      >
+        <a
+          class="page-link pageNumber"
+          (click)="updatePageNumber(pageNumber)"
+          >{{ pageNumber + 1 }}</a
+        >
+      </li>
+
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
