@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   getArrayFromNumber(length) {
     return new Array(Math.ceil(length /25));
   }
+  
   updatePageNumber(pageNum) {
     this.startPageNumber = pageNum * 10;
     this.endPageNumber = this.startPageNumber + 10;

@@ -1,5 +1,12 @@
 <div class="card">
-  <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
+  <div class="img_trailer">
+    <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
+    <div class="trailer">
+      <a href="{{phim.trailer}}">
+        <i class="fa fa-play"></i>
+      </a>
+    </div>
+  </div>
   <div class="card-body">
     <h4 class="card-title">{{ phim.tenPhim | uppercase }}</h4>
     <p class="card-text">{{ phim.moTa | lowercase }}</p>
@@ -17,11 +24,8 @@
     </div> -->
 
     <!-- Query params cách 2 -->
-    <div
-      [routerLink]="['/detail']"
-      [queryParams]="{ maPhim: phim.maPhim, tenPhim: phim.tenPhim }"
-      class="btn btn-success"
-    >
+    <div [routerLink]="['/detail']" [queryParams]="{ maPhim: phim.maPhim, tenPhim: phim.tenPhim }"
+      class="btn btn-success">
       Mua vé
     </div>
   </div>

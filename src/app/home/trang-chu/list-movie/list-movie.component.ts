@@ -23,7 +23,7 @@ export class ListMovieComponent implements OnInit, OnDestroy {
       .subscribe((result) => {
         this.dsPhim = result;
         // this.currentDSPhimSubject.next(result)
-        // console.log(this.dsPhim);
+        console.log(this.dsPhim);
       });
   }
 
