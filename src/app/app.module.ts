@@ -8,6 +8,7 @@ import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core/core.module";
 import { AuthModule } from "./auth/auth.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 // import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     CoreModule,
     AuthModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

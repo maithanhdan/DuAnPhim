@@ -6,6 +6,8 @@ import { MovieManagementComponent } from "./movie-management/movie-management.co
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { FormsModule } from "@angular/forms";
+import { MyFilterPipe } from './dashboard/my-filter.pipe';
+
 
 
 @NgModule({
@@ -13,8 +15,13 @@ import { FormsModule } from "@angular/forms";
     AdminComponent,
     UserManagementComponent,
     MovieManagementComponent,
-    DashboardComponent
+    DashboardComponent,
+    MyFilterPipe
   ],
-  imports: [CommonModule, AdminRoutingModule, FormsModule,]
+  imports: [CommonModule, AdminRoutingModule, FormsModule,],
+  exports: [
+    // ...
+    MyFilterPipe
+]
 })
 export class AdminModule {}
