@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { MoviesService } from 'src/app/core/services/movies.service';
 import { Movie } from 'src/app/core/models/movie';
 import { BehaviorSubject } from "rxjs";
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-list-movie',
@@ -14,7 +15,7 @@ export class ListMovieComponent implements OnInit, OnDestroy {
   subDsPhim: Subscription;
   private currentDSPhimSubject = new BehaviorSubject({});
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private _lightbox: Lightbox) {}
 
   ngOnInit(): void {
     // hàm subscribe sẽ chờ kết quả trả về từ Observable
@@ -22,7 +23,6 @@ export class ListMovieComponent implements OnInit, OnDestroy {
       .layDanhSachPhim()
       .subscribe((result) => {
         this.dsPhim = result;
-        // this.currentDSPhimSubject.next(result)
         console.log(this.dsPhim);
       });
   }
@@ -30,7 +30,14 @@ export class ListMovieComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subDsPhim.unsubscribe();
   }
-  // public getDSPhimSubject(){
-  //   return this.currentDSPhimSubject.value
-  // }
+
+  open(index: number): void {
+    // open lightbox
+    // this._lightbox.open(this.dsPhim, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }
 }

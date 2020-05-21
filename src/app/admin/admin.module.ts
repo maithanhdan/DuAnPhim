@@ -20,8 +20,7 @@ import { MyFilterPipe } from './dashboard/my-filter.pipe';
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule,],
   exports: [
-    // ...
     MyFilterPipe
-]
+  ]
 })
-export class AdminModule {}
+export class AdminModule { }

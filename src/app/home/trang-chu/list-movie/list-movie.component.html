@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let phim of dsPhim" class="col-md-3">
-      <app-movie [phim]="phim"></app-movie>
+    <div *ngFor="let phim of dsPhim" class="col-md-3" (click)="open(index)">
+      <app-movie [phim]="phim" (eventTrailer)="trailer($event)"></app-movie>
     </div>
   </div>
 </div>
