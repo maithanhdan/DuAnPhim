@@ -31,13 +31,13 @@ export class ListMovieComponent implements OnInit, OnDestroy {
     this.subDsPhim.unsubscribe();
   }
 
-  open(index: number): void {
-    // open lightbox
-    // this._lightbox.open(this.dsPhim, index);
-  }
+  // open(index: number): void {
+  //   // open lightbox
+  //   // this._lightbox.open(this.dsPhim, index);
+  // }
 
-  close(): void {
-    // close lightbox programmatically
-    this._lightbox.close();
-  }
+  // close(): void {
+  //   // close lightbox programmatically
+  //   this._lightbox.close();
+  // }
 }

@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { FormsModule } from "@angular/forms";
 import { MyFilterPipe } from './dashboard/my-filter.pipe';
+import { DashboardMovieComponent } from './dashboard-movie/dashboard-movie.component';
 
 
 
@@ -16,7 +17,8 @@ import { MyFilterPipe } from './dashboard/my-filter.pipe';
     UserManagementComponent,
     MovieManagementComponent,
     DashboardComponent,
-    MyFilterPipe
+    MyFilterPipe,
+    DashboardMovieComponent
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule,],
   exports: [
