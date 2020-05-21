@@ -1,0 +1,78 @@
+
+<div class="container-fluid" *ngIf="danhSachPhim">
+    <div class="row">
+      <input type="text" [(ngModel)]="searchDSPhim" />
+      <button class="btn btn-default add">
+        +
+      </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>action</th>
+          <th scope="col">ma phim</th>
+          <th scope="col">ten phim</th>
+          <th scope="col">bi danh</th>
+          <th scope="col">trainler</th>
+          <th scope="col">hinh Anh</th>
+          <th scope="col">mo ta</th>
+          <th scope="col">ma nhom</th>
+          <th scope="col">ngay khoi chieu</th>
+          <th scope="col">danh gia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let user of danhSachPhim
+              | searchDSPhim: searchDSPhim
+              | slice: startPageNumberDS:endPageNumberDS
+          "
+        >
+          <td class="row">
+            <button class="btn btn-success update">
+              them
+            </button>
+            <button class="btn btn-danger delete">
+              xoa
+            </button>
+          </td>
+          <td>{{ user.maPhim }}</td>
+          <td>{{ user.tenPhim }}</td>
+          <td>{{ user.biDanh }}</td>
+          <td>{{ user.trailer }}</td>
+          <td>
+            <img
+              class="card-img-top"
+              [src]="user.hinhAnh"
+              alt=""
+              style="width:100px;height:100px;"
+            />
+          </td>
+          <td>{{ user.moTa }}</td>
+          <td>{{ user.maNhom }}</td>
+          <td>{{ user.ngayKhoiChieu }}</td>
+          <td>{{ user.danhGia }}</td>
+        </tr>
+      </tbody>
+  
+      <nav aria-label="Page navigation example" id="2">
+        <ul class="pagination">
+          <li
+            class="page-item"
+            *ngFor="
+              let i of getArrayNumberDsPhim(danhSachPhim.length);
+              let pageNumber = index
+            "
+          >
+            <a
+              class="page-link pageNumber"
+              (click)="updatePageNumberDSPhim(pageNumber)"
+              >{{ pageNumber + 1 }}</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </table>
+  </div>
+  

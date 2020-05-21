@@ -6,10 +6,9 @@ import { MovieManagementComponent } from "./movie-management/movie-management.co
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AdminRoutingModule } from "./admin-routing.module";
 import { FormsModule } from "@angular/forms";
-import { MyFilterPipe } from './dashboard/my-filter.pipe';
-import { SearchDSPhimPipe } from './dashboard/search-dsphim.pipe';
-
-
+import { MyFilterPipe } from "./dashboard/my-filter.pipe";
+import { DashboardMovieComponent } from "./dashboard-movie/dashboard-movie.component";
+import { SearchDSPhimPipe } from "./dashboard-movie/search-dsphim.pipe";
 
 @NgModule({
   declarations: [
@@ -18,12 +17,10 @@ import { SearchDSPhimPipe } from './dashboard/search-dsphim.pipe';
     MovieManagementComponent,
     DashboardComponent,
     MyFilterPipe,
-    SearchDSPhimPipe
+    SearchDSPhimPipe,
+    DashboardMovieComponent
   ],
-  imports: [CommonModule, AdminRoutingModule, FormsModule,],
-  exports: [
-    // ...
-    MyFilterPipe,SearchDSPhimPipe
-]
+  imports: [CommonModule, AdminRoutingModule, FormsModule],
+  exports: [MyFilterPipe, SearchDSPhimPipe]
 })
 export class AdminModule {}

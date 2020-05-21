@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { MovieManagementComponent } from './movie-management/movie-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardMovieComponent } from './dashboard-movie/dashboard-movie.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
       // /admin/user
       { path: 'user', component: UserManagementComponent },
       // /admin/movie
-      { path: 'movie', component: MovieManagementComponent },
+      { path: 'movie', component: DashboardMovieComponent },
     ],
   },
 ];
@@ -24,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

@@ -8,4 +8,5 @@ export class Movie {
   maNhom: string;
   ngayKhoiChieu: string;
   danhGia: number;
+  length: number;
 }

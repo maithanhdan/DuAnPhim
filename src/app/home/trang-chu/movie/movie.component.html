@@ -2,7 +2,7 @@
   <div class="img_trailer">
     <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
     <div class="trailer">
-      <a href="{{phim.trailer}}">
+      <a (click)="trailerMovie(phim.trailer)" href="{{phim.trailer}}">
         <i class="fa fa-play"></i>
       </a>
     </div>

@@ -8,6 +8,7 @@ import { NewsComponent } from './news/news.component';
 import { ListCinemaComponent } from './list-cinema/list-cinema.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TrangChuRoutingModule } from './trang-chu-routing.module';
+import { LightboxModule } from 'ngx-lightbox';
 @NgModule({
   declarations: [
     TrangChuComponent,
@@ -18,6 +19,6 @@ import { TrangChuRoutingModule } from './trang-chu-routing.module';
     ListCinemaComponent,
     CarouselComponent,
   ],
-  imports: [CommonModule, TrangChuRoutingModule],
+  imports: [CommonModule, TrangChuRoutingModule, LightboxModule],
 })
-export class TrangChuModule {}
+export class TrangChuModule { }
