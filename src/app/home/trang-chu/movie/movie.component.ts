@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/app/core/models/movie';
-
+import { Lightbox } from "ngx-lightbox";
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
