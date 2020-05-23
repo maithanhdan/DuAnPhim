@@ -1,13 +1,19 @@
-<div class="flex container">
+<!-- <div class="flex container">
   <div class="row">
     <div class="col-md-5 row">
       <ul class="col-md-2">
-        <li *ngFor="let heThongRap of cinemaService.heThongRap()" (click)="chonHeThongRap(heThongRap.maHeThongRap)">
+        <li
+          *ngFor="let heThongRap of cinemaService.heThongRap()"
+          (click)="chonHeThongRap(heThongRap.maHeThongRap)"
+        >
           <img [src]="heThongRap.logo" width="50" height="50" />
         </li>
       </ul>
       <ul class="col-md-10">
-        <li *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()" (click)="chonPhimChieu(cumRap.maCumRap)">
+        <li
+          *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()"
+          (click)="chonPhimChieu(cumRap.maCumRap)"
+        >
           {{ cumRap.tenCumRap }}
         </li>
       </ul>
@@ -17,8 +23,14 @@
         <li *ngFor="let phim of lichChieu.danhSachPhim">
           <img [src]="phim.hinhAnh" width="90" height="110" />
           {{ phim.tenPhim }}
-          <div *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5" class="row">
-            <a [routerLink]="['/checkout']" [queryParams]="{ maLichChieu: xuatChieu.maLichChieu}">
+          <div
+            *ngFor="let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5"
+            class="row"
+          >
+            <a
+              [routerLink]="['/checkout']"
+              [queryParams]="{ maLichChieu: xuatChieu.maLichChieu }"
+            >
               {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm" }}
             </a>
           </div>
@@ -26,4 +38,67 @@
       </ul>
     </div>
   </div>
-</div>
+</div> -->
+
+<section class="free-choose my-5" id="theater">
+  <div class="container">
+    <div class="container">
+      <div class="row py-5">
+        <!-- logo -->
+        <div class="col-lg-1 col-md-1 col-sm-3 col-3" id="brand">
+          <div *ngFor="let heThongRap of cinemaService.heThongRap()" (click)="chonHeThongRap(heThongRap.maHeThongRap)">
+            <img [src]="heThongRap.logo" alt="" w />
+          </div>
+        </div>
+        <!-- end logo-->
+
+        <!-- list cinema -->
+        <div class="col-lg-4 col-md-4 col-sm-9 col-9" id="center-choose-film">
+          <div class="overflow-auto">
+            <div class="item-1">
+              <div *ngFor="let cumRap of cinemaService.cumRapTheoHeThong()" (click)="chonPhimChieu(cumRap.maCumRap)"
+                class="row detail-item1">
+                <div class="col-md-2 col-xs-2 col-sm-2 col-2">
+                  <img src="https://s3img.vcdn.vn/123phim/2018/09/cgv-su-van-hanh-15380173580593.jpg" alt="" />
+                </div>
+
+                <div class="col-md-10 col-xs-10 col-sm-10 col-10 pt-2 chitiet">
+                  <div id="cgv-text">
+                    <span>-{{ cumRap.diaChi }}</span>
+                  </div>
+                  <span id="detail-text">[Chi tiet]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- endlist cinema -->
+
+        <div class="col-lg-7 col-md-7 col-sm-12" id="right-title-film">
+          <div class="overflow-auto">
+            <div *ngIf="lichChieu; xuatChieu1Phim">
+              <div *ngFor="let phim of lichChieu.danhSachPhim" class="row">
+                <div class="col-md-1 col-xs-1 col-sm-2 col-2">
+                  <img [src]="phim.hinhAnh" alt="" />
+                </div>
+                <div class="col-md-11 col-xs-11 col-sm-10 col-10 mt-2" id="title-film-content">
+                  <button id="limit-age-film" disabled>C16</button>
+                  <span>{{ phim.tenPhim }}</span>
+                  <p>89 phut - TIX 7.7 - IMDb 6.6</p>
+                </div>
+                <div class="movie-type" *ngFor="
+                    let xuatChieu of phim.lstLichChieuTheoPhim | slice: 0:5
+                  ">
+                  <p>2D Digital</p>
+                  <button [routerLink]="['/checkout']" [queryParams]="{ maLichChieu: xuatChieu.maLichChieu }">
+                    {{ xuatChieu.ngayChieuGioChieu | date: "hh : mm" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

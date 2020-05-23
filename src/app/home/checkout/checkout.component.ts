@@ -20,9 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   mangGheDangDat(gheDangDat: any) {
     if (gheDangDat.DangDat) {
-      if (this.mangGheThanhToan.length <8) {
-        this.mangGheThanhToan.push(gheDangDat);
-      }
+      this.mangGheThanhToan.push(gheDangDat);
     } else {
       this.mangGheThanhToan = this.mangGheThanhToan.filter(
         ghe => ghe.SoGhe !== gheDangDat.SoGhe

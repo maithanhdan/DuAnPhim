@@ -1,0 +1,172 @@
+/* News */
+.title-news span {
+    padding-right: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  .title-news span:hover {
+    color: #fb4226;
+    cursor: pointer;
+  }
+
+  /* news card */
+  .card {
+    border: none;
+    width: 100%;
+    height: auto;
+  }
+
+  .card-main img {
+    height: 350px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .card-under img {
+    height: 190px;
+  }
+
+  .card-body {
+    padding-left: unset;
+    padding-right: unset;
+  }
+
+  .card-body a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  .card-body h5:hover {
+    color: #fb4226;
+  }
+
+  .card-body h5 {
+    font-size: 17px;
+  }
+
+  .card-body p {
+    font-size: 13px;
+  }
+
+  .card-body span {
+    padding-right: 2rem;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  .card-body i {
+    margin-right: 0.6rem;
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+
+  .card-body i:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .card-right-under img {
+    width: 70px;
+    height: 60px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+  }
+
+  .card-right-under img:hover {
+    cursor: pointer;
+  }
+
+  .card-right-under a {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-decoration: none;
+    color: unset;
+  }
+
+  .card-right-text {
+    top: 0.3rem;
+  }
+
+  #right-text p {
+    padding-top: 20px;
+  }
+
+  .card-right-under p:hover {
+    color: #fb4226;
+    opacity: 1;
+  }
+
+  /* carousel - footer */
+  .image-container {
+    position: relative;
+  }
+
+  #image {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  #image img {
+    height: 50vh;
+  }
+
+  .text {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    top: 5%;
+    left: 5%;
+  }
+  
+  .text button {
+    color: white;
+    background-color: #fb4226;
+    padding: 0.6rem 2rem 0.6rem 2rem;
+  }
+
+  .text button:hover {
+    color: unset;
+  }
+
+  .text a {
+    text-decoration: none;
+    color: unset;
+    text-decoration: underline;
+  }
+
+  .text-left-ft {
+    padding-right: 5.5rem !important;
+    padding: 6.8rem;
+  }
+
+  .text-right-ft {
+    padding: 1.2rem 11.7rem 0 11.7rem;
+  }
+
+  .right-background {
+    border: 4px solid #4a4a4a;
+  
+    border-radius: 34px;
+    top: 22rem;
+  }
+
+  .right-background img {
+    border-radius: 30px;
+    height: 500px;
+    border: 2px solid #0c0b0b;
+  }
+  
+  .text p {
+    font-family: unset;
+    font-style: unset;
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: unset;
+    padding-bottom: 8px;
+  }

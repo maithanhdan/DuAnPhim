@@ -28,18 +28,6 @@
     <h4 class="card-title">{{ phim.tenPhim | uppercase }}</h4>
     <p class="card-text">{{ phim.moTa | shortcut:20}}</p>
     <p class="card-text">{{ 0.5 | percent }}</p>
-    <!-- <div routerLink="/detail/{{ phim.maPhim }}" class="btn btn-success">
-      Mua vé
-    </div> -->
-
-    <!-- Query params cách 1 -->
-    <!-- <div
-      routerLink="/detail?maPhim={{ phim.maPhim }}&tenPhim={{ phim.tenPhim }}"
-      class="btn btn-success"
-    >
-      Mua vé
-    </div> -->
-
     <!-- Query params cách 2 -->
     <div [routerLink]="['/detail']" [queryParams]="{ maPhim: phim.maPhim, tenPhim: phim.tenPhim }"
       class="btn btn-success">
@@ -47,3 +35,4 @@
     </div>
   </div>
 </div>
+
