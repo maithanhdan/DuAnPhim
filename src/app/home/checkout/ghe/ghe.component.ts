@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { CheckoutComponent } from '../checkout.component';
 @Component({
   selector: "app-ghe",
   templateUrl: "./ghe.component.html",
