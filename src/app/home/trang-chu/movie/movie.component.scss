@@ -31,3 +31,151 @@
         }
     }
 }
+/* movie showed*/
+#carousel-main {
+    position: relative;
+  }
+  
+  #carousel-main:hover .play-video {
+    display: block;
+    cursor: pointer;
+    top: 50%;
+  }
+  .play-video {
+    position: absolute;
+    display: none;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    z-index: 100;
+    color: white;
+  }
+  .play-video:hover {
+    opacity: 0.8;
+  }
+  .itemsContainer {
+    float: left;
+    position: relative;
+  }
+  .itemsContainer img {
+    height: 320px;
+    border-radius: 4px;
+  }
+  .itemsContainer img:hover {
+    opacity: 0.9;
+  }
+  #rate-movie {
+    position: absolute;
+    display: block;
+    top: 0;
+    margin: 0.8rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    width: 64px;
+  }
+  
+  #limit-age {
+    color: white;
+    background-color: #fb4226;
+    border-radius: 3px;
+    font-size: 12px;
+    border: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    margin: 0.8rem;
+  }
+  #rate-movie {
+    background-color: rgba(12, 27, 54, 0.8);
+    border: 1px solid #1f2e46;
+  }
+  #rate-movie span {
+    font-size: 13px;
+    color: white;
+  }
+  #rate-movie i {
+    font-size: 7px;
+    color: #fb4226;
+    padding: unset;
+    position: unset;
+    line-height: unset;
+    display: unset;
+  }
+  .itemsContainer #ticket {
+    display: none;
+    z-index: 100;
+  }
+  .itemsContainer #ticket:hover {
+    background-color: rgb(216, 79, 79);
+  }
+  .itemsContainer:hover p {
+    display: none;
+    cursor: pointer;
+    top: 40%;
+  }
+  
+  .itemsContainer:hover #ticket {
+    display: block;
+    cursor: pointer;
+    top: 40%;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .itemsContainer:hover .play {
+    display: block;
+    cursor: pointer;
+    top: 40%;
+  }
+  .play {
+    position: absolute;
+    display: none;
+    width: 40px;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    z-index: 100;
+    color: white;
+  }
+  .play:hover {
+    opacity: 0.8;
+  }
+  /* multi-item-movie */
+  
+  #left-list-movie-change {
+    color: gray;
+    font-size: 3rem;
+    padding: 1rem;
+    padding-bottom: unset;
+    border-top: unset;
+  }
+  #left-list-movie-change:hover {
+    color: #fb4226;
+  }
+  /* movie haven't show*/
+  #limit-age-yet {
+    color: white;
+    background-color: #00ac4d;
+    border-radius: 3px;
+    font-size: 12px;
+    border: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    margin: 0.8rem;
+  }
+  #rate-movie-yet {
+    position: absolute;
+    display: block;
+    top: 16.7rem;
+    margin: 0.8rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    width: 64px;
+    background-color: rgba(12, 27, 54, 0.8);
+    border: 1px solid #1f2e46;
+  }
+  #rate-movie-yet span {
+    color: white;
+  }
