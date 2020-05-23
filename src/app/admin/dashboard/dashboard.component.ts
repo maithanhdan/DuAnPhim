@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DanhSachNguoiDungService } from "src/app/core/services/danh-sach-nguoi-dung.service";
-import { MoviesService } from "src/app/core/services/movies.service";
 import { UsersService } from "src/app/core/services/users.service";
 import { UserRegister } from 'src/app/core/models/user-register';
+import { Router } from '@angular/router';
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -11,21 +11,16 @@ import { UserRegister } from 'src/app/core/models/user-register';
 export class DashboardComponent implements OnInit {
   constructor(
     private DSNguoiDung: DanhSachNguoiDungService,
-    private listMovie: MoviesService,
-    private usersServices: UsersService
+    private usersServices: UsersService, private router: Router 
   ) {}
   danhSachNguoiDung: any[];
   startPageNumber = 0;
   endPageNumber = 10;
-  danhSachPhim: any[];
 
   search: string;
   searchDSPhim: string;
   ngOnInit(): void {
-    this.listMovie.layDanhSachPhim().subscribe(rs => {
-      this.danhSachPhim = rs;
-    });
-
+  
     this.DSNguoiDung.layDanhSachNguoiDung().subscribe(rs => {
       this.danhSachNguoiDung = rs;
       console.log(this.danhSachNguoiDung);
@@ -40,17 +35,15 @@ export class DashboardComponent implements OnInit {
     this.startPageNumber = pageNum * 10;
     this.endPageNumber = this.startPageNumber + 10;
   }
-
-  startPageNumberDS = 0;
-  endPageNumberDS = 5;
-  getArrayNumberDsPhim(length) {
-    return new Array(Math.ceil(length / 5));
-  }
-
-  updatePageNumberDSPhim(pageNum) {
-    this.startPageNumberDS = pageNum * 5;
-    this.endPageNumberDS = this.startPageNumberDS + 5;
-  }
   form: UserRegister = new UserRegister();
-  onSubmit() {}
+  onSubmit() {
+    console.log(this.form);
+    const values = { ...this.form, maNhom: 'GP01' };
+    this.usersServices.dangKy(values).subscribe((res) => {
+      this.ngOnInit()
+    });
+  }
+  xoaUser(ele:string){
+
+  }
 }

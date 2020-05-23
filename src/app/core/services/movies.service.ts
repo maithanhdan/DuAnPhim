@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { Movie } from '../models/movie';
+import { MovieRegister } from '../models/movie-register';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,9 @@ export class MoviesService {
     params = params.append('maNhom', 'GP01');
     params = params.append('maPhim', maPhim);
     return this.api.get('QuanLyPhim/LayThongTinPhim', { params });
+  }
+
+  public dangKyPhim(values : MovieRegister): Observable<any> {
+    return this.api.post('QuanLyPhim/ThemPhim', values);
   }
 }

@@ -14,7 +14,7 @@ export class UsersService {
 
   constructor(private api: ApiService) {}
 
-  public dangKy(values: UserRegister): Observable<any> {
+  public dangKy(values : UserRegister): Observable<any> {
     return this.api.post('QuanLyNguoiDung/DangKy', values);
   }
 

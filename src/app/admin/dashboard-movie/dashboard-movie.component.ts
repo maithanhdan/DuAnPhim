@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UsersService } from "src/app/core/services/users.service";
 import { MoviesService } from "src/app/core/services/movies.service";
-import { UserRegister } from "src/app/core/models/user-register";
+import { MovieRegister } from "src/app/core/models/movie-register";
 
 @Component({
   selector: "app-dashboard-movie",
@@ -12,13 +11,16 @@ export class DashboardMovieComponent implements OnInit {
   constructor(private listMovie: MoviesService) { }
   danhSachPhim: any[];
   searchDSPhim: string;
+  
   ngOnInit(): void {
     this.listMovie.layDanhSachPhim().subscribe(rs => {
       this.danhSachPhim = rs;
     });
   }
+
   startPageNumberDS = 0;
   endPageNumberDS = 5;
+  
   getArrayNumberDsPhim(length) {
     return new Array(Math.ceil(length / 5));
   }
@@ -26,5 +28,15 @@ export class DashboardMovieComponent implements OnInit {
   updatePageNumberDSPhim(pageNum) {
     this.startPageNumberDS = pageNum * 5;
     this.endPageNumberDS = this.startPageNumberDS + 5;
+  }
+
+  form: MovieRegister = new MovieRegister();
+
+  onSubmit() {
+    console.log(this.form);
+    const values = { ...this.form, maNhom: 'GP01' };
+    this.listMovie.dangKyPhim(values).subscribe((res) => {
+      this.ngOnInit()
+    });
   }
 }
