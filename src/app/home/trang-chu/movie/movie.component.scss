@@ -22,6 +22,17 @@
                 transition: all 0.5s;
             }
         }
+        .modal {
+            .modal-dialog {
+                .modal-content {
+                    transform: translate(-18%, 8%);
+                    width: 800px;
+                    .modal-body {
+                        height: 500px;
+                    }
+                }
+            }
+        }
     }
     .img_trailer:hover {
         .trailer {

@@ -9,14 +9,9 @@ import { Lightbox } from 'ngx-lightbox';
 })
 export class MovieComponent implements OnInit {
   @Input() phim: Movie;
-  @Output() eventTrailer = new EventEmitter();
   constructor() {
 
   }
 
   ngOnInit(): void { }
-
-  trailerMovie(trailermovie) {
-    this.eventTrailer.emit(trailermovie);
-  }
 }

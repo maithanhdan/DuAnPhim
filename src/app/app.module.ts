@@ -9,7 +9,6 @@ import { CoreModule } from "./core/core.module";
 import { AuthModule } from "./auth/auth.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
-import { LightboxModule } from 'ngx-lightbox';
 // import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { LightboxModule } from 'ngx-lightbox';
     HttpClientModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-    LightboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
