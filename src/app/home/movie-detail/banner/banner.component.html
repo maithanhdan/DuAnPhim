@@ -1,10 +1,10 @@
-<div *ngIf="chiTietPhim; else loading" class="container">
+<!-- <div *ngIf="chiTietPhim; else loading" class="container">
   <div class="row">
     <div class="col-md-6 row">
       <img [src]="chiTietPhim.hinhAnh" class="col-md-6"/>
       <div>
         <p>{{ chiTietPhim.tenPhim }}</p>
-        <!-- <p>{{ chiTietPhim.ngayKhoiChieu }}</p> -->
+        <!-- <p>{{ chiTietPhim.ngayKhoiChieu }}</p> 
         <p>
           ngày khởi chiếu : {{ chiTietPhim.ngayKhoiChieu | date: "dd/MM/yyy" }}
         </p>
@@ -15,9 +15,55 @@
     </div>
   </div>
 </div>
-
+-->
 <ng-template #loading>
   <!-- Tự viết thêm 1 component loading -->
   <!-- <app-loading></app-loading> -->
   ...loading
 </ng-template>
+
+
+<section class="Detail-Movie">
+    <div class="image-container-detail">
+      <img [src]="chiTietPhim.hinhAnh" id="main-img-detail" />
+      <div class="container">
+        <div class="text-detail">
+          <div class="row">
+
+            <div class="col-6 col-md-3 col-xs-3 col-sm-6 row ">
+              <img [src]="chiTietPhim.hinhAnh" alt="" />
+            </div>
+
+            <div class="col-6 col-md-3 col-xs-3 col-sm-6 text-detail-movie">
+              <p>20.05.2020</p>
+              <div class="title-film-detail">
+                <h5><span>C18</span> Bay Linh Hon - DreamKatcher</h5>
+              </div>
+              <p>84 phut - 3.8 IMBd - 2D/Digital</p>
+              <button class="btn btn-danger">Mua Ve</button>
+            </div>
+
+            <div class="col-12 col-md-6 col-xs-6 col-sm-12 progress-right">
+              <div class="progress blue">
+                <span class="progress-left">
+                  <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                  <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value">7.0</div>
+              </div>
+              
+              <div disabled class="rate-movie-detail">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"> 1/2 </i>
+              </div>
+              <p>93 nguoi danh gia</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
