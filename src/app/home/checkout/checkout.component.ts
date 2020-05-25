@@ -16,7 +16,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private checkoutSevice: CheckoutService
-  ) {}
+  ) { }
 
   mangGheDangDat(gheDangDat: any) {
     if (gheDangDat.DangDat) {
@@ -30,15 +30,21 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.checkoutSevice
-        .layDanhSachPhongVe(params.maLichChieu)
-        .subscribe(rs => {
-          const { danhSachGhe, ...thongTinPhim } = rs;
-          this.danhSachGhe = danhSachGhe;
-          this.thongTinPhim = thongTinPhim.thongTinPhim;
-          console.log(this.danhSachGhe, this.thongTinPhim);
-        });
-    });
+    if (this.activatedRoute.queryParams) {
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.checkoutSevice
+          .layDanhSachPhongVe(params.maLichChieu)
+          .subscribe(rs => {
+            const { danhSachGhe, ...thongTinPhim } = rs;
+            this.danhSachGhe = danhSachGhe;
+            this.thongTinPhim = thongTinPhim.thongTinPhim;
+            console.log(this.danhSachGhe, this.thongTinPhim);
+          });
+      });
+    } else {
+      this.activatedRoute.params.subscribe(params => {
+        console.log(params);
+      })
+    }
   }
 }

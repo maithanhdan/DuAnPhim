@@ -47,6 +47,6 @@ export class FilterComponent implements OnInit {
   }
   datVe() {
     console.log(this.maLichChieu);
-    this.router.navigate([`/checkout?maLichChieu=${this.maLichChieu}`])
+    this.router.navigate([`/checkout/${this.maLichChieu}`])
   }
 }

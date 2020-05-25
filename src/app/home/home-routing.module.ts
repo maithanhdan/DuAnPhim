@@ -14,10 +14,12 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', loadChildren: () => TrangChuModule },
-      
+
       { path: 'detail', loadChildren: () => MovieDetailModule },
-      
+
       { path: 'checkout', loadChildren: () => CheckoutModule },
+
+      { path: 'checkout/:maLichChieu', loadChildren: () => CheckoutModule },
     ],
   },
 ];
@@ -26,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomeRoutingModule {}
+export class HomeRoutingModule { }
