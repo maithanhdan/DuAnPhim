@@ -38,13 +38,18 @@ export class CheckoutComponent implements OnInit {
             const { danhSachGhe, ...thongTinPhim } = rs;
             this.danhSachGhe = danhSachGhe;
             this.thongTinPhim = thongTinPhim.thongTinPhim;
-            console.log(this.danhSachGhe, this.thongTinPhim);
+            // console.log(this.danhSachGhe, this.thongTinPhim);
           });
       });
-    } else {
-      this.activatedRoute.params.subscribe(params => {
-        console.log(params);
-      })
     }
+      this.activatedRoute.params.subscribe(params => {
+        this.checkoutSevice
+          .layDanhSachPhongVe(params.maLichChieu)
+          .subscribe(rs => {
+            const { danhSachGhe, ...thongTinPhim } = rs;
+            this.danhSachGhe = danhSachGhe;
+            this.thongTinPhim = thongTinPhim.thongTinPhim;
+          });
+      })
   }
 }
