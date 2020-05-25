@@ -9,6 +9,7 @@ import { ListCinemaComponent } from './list-cinema/list-cinema.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TrangChuRoutingModule } from './trang-chu-routing.module';
 import { LightboxModule } from 'ngx-lightbox';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AppLinkComponent } from './app-link/app-link.component';
 @NgModule({
   declarations: [
@@ -21,6 +22,6 @@ import { AppLinkComponent } from './app-link/app-link.component';
     CarouselComponent,
     AppLinkComponent,
   ],
-  imports: [CommonModule, TrangChuRoutingModule, LightboxModule],
+  imports: [CommonModule, TrangChuRoutingModule, LightboxModule, SharedModule],
 })
 export class TrangChuModule { }

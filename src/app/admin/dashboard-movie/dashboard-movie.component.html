@@ -1,12 +1,7 @@
 <div class="container-fluid" *ngIf="danhSachPhim">
   <div class="row">
     <input type="text" [(ngModel)]="searchDSPhim" />
-    <button
-      class="btn btn-default add"
-      type="button"
-      data-toggle="modal"
-      data-target="#form"
-    >
+    <button class="btn btn-default add" type="button" data-toggle="modal" data-target="#form">
       +
     </button>
   </div>
@@ -26,13 +21,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="
+      <tr *ngFor="
           let user of danhSachPhim
             | searchDSPhim: searchDSPhim
             | slice: startPageNumberDS:endPageNumberDS
-        "
-      >
+        ">
         <td class="row">
           <button class="btn btn-success update">
             update
@@ -46,12 +39,7 @@
         <td>{{ user.biDanh }}</td>
         <td>{{ user.trailer }}</td>
         <td>
-          <img
-            class="card-img-top"
-            [src]="user.hinhAnh"
-            alt=""
-            style="width:100px;height:100px;"
-          />
+          <img class="card-img-top" [src]="user.hinhAnh" alt="" style="width:100px;height:100px;" />
         </td>
         <td>{{ user.moTa }}</td>
         <td>{{ user.maNhom }}</td>
@@ -62,18 +50,11 @@
 
     <nav aria-label="Page navigation example" id="2">
       <ul class="pagination">
-        <li
-          class="page-item"
-          *ngFor="
+        <li class="page-item" *ngFor="
             let i of getArrayNumberDsPhim(danhSachPhim.length);
             let pageNumber = index
-          "
-        >
-          <a
-            class="page-link pageNumber"
-            (click)="updatePageNumberDSPhim(pageNumber)"
-            >{{ pageNumber + 1 }}</a
-          >
+          ">
+          <a class="page-link pageNumber" (click)="updatePageNumberDSPhim(pageNumber)">{{ pageNumber + 1 }}</a>
         </li>
       </ul>
     </nav>
@@ -81,24 +62,13 @@
 </div>
 
 <!-- popup modal add movie -->
-<div
-  class="modal fade bd-example-modal-xl"
-  id="form"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade bd-example-modal-xl" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
         <h5 class="modal-title" id="exampleModalLabel">Create Account User</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -106,18 +76,11 @@
         <!-- maPhim -->
         <div class="form-group">
           <label for="maPhim">maPhim</label>
-          <input
-            type="text"
-            id="maPhim"
-            name="maPhim"
-            class="form-control"
-            [(ngModel)]="form.maPhim"
-            #maPhim="ngModel"
-            required
-          />
+          <input type="text" id="maPhim" name="maPhim" class="form-control" [(ngModel)]="form.maPhim" #maPhim="ngModel"
+            required />
           <div *ngIf="maPhim.errors && (maPhim.dirty || maPhim.touched)">
             <div *ngIf="maPhim.errors.required">
-                maPhim không được để trống
+              maPhim không được để trống
             </div>
           </div>
         </div>
@@ -125,18 +88,11 @@
         <!-- tenPhim -->
         <div class="form-group">
           <label for="tenPhim">tenPhim</label>
-          <input
-            type="text"
-            id="tenPhim"
-            name="tenPhim"
-            class="form-control"
-            [(ngModel)]="form.tenPhim"
-            #tenPhim="ngModel"
-            required
-          />
+          <input type="text" id="tenPhim" name="tenPhim" class="form-control" [(ngModel)]="form.tenPhim"
+            #tenPhim="ngModel" required />
           <div *ngIf="tenPhim.errors && (tenPhim.dirty || tenPhim.touched)">
             <div *ngIf="tenPhim.errors.required">
-                tenPhim không được để trống
+              tenPhim không được để trống
             </div>
           </div>
         </div>
@@ -144,15 +100,8 @@
         <!-- biDanh -->
         <div class="form-group">
           <label for="biDanh">biDanh</label>
-          <input
-            type="biDanh"
-            id="biDanh"
-            name="biDanh"
-            class="form-control"
-            [(ngModel)]="form.biDanh"
-            #biDanh="ngModel"
-            required
-          />
+          <input type="biDanh" id="biDanh" name="biDanh" class="form-control" [(ngModel)]="form.biDanh"
+            #biDanh="ngModel" required />
           <div *ngIf="biDanh.errors && (biDanh.dirty || biDanh.touched)">
             <div *ngIf="biDanh.errors.required">
               biDanh không được để trống
@@ -163,15 +112,8 @@
         <!-- trailer -->
         <div class="form-group">
           <label for="trailer">trailer</label>
-          <input
-            type="text"
-            id="trailer"
-            name="trailer"
-            class="form-control"
-            [(ngModel)]="form.trailer"
-            #trailer="ngModel"
-            required
-          />
+          <input type="text" id="trailer" name="trailer" class="form-control" [(ngModel)]="form.trailer"
+            #trailer="ngModel" required />
           <div *ngIf="trailer.errors && (trailer.dirty || trailer.touched)">
             <div *ngIf="trailer.errors.required">
               trailer không được để trống
@@ -182,15 +124,8 @@
         <!-- hinhAnh -->
         <div class="form-group">
           <label for="hinhAnh">hinhAnh</label>
-          <input
-            type="string"
-            id="hinhAnh"
-            name="hinhAnh"
-            class="form-control"
-            [(ngModel)]="form.hinhAnh"
-            #hinhAnh="ngModel"
-            required
-          />
+          <input type="string" id="hinhAnh" name="hinhAnh" class="form-control" [(ngModel)]="form.hinhAnh"
+            #hinhAnh="ngModel" required />
           <div *ngIf="hinhAnh.errors && (hinhAnh.dirty || hinhAnh.touched)">
             <div *ngIf="hinhAnh.errors.required">
               hinhAnh không được để trống
@@ -201,15 +136,8 @@
         <!-- moTa -->
         <div class="form-group">
           <label for="moTa">moTa</label>
-          <input
-            type="text"
-            id="moTa"
-            name="moTa"
-            class="form-control"
-            [(ngModel)]="form.moTa"
-            #moTa="ngModel"
-            required
-          />
+          <input type="text" id="moTa" name="moTa" class="form-control" [(ngModel)]="form.moTa" #moTa="ngModel"
+            required />
           <div *ngIf="moTa.errors && (moTa.dirty || moTa.touched)">
             <div *ngIf="moTa.errors.required">
               moTa không được để trống
@@ -220,15 +148,8 @@
         <!-- maNhom -->
         <div class="form-group">
           <label for="maNhom">maNhom</label>
-          <input
-            type="text"
-            id="maNhom"
-            name="maNhom"
-            class="form-control"
-            [(ngModel)]="form.maNhom"
-            #maNhom="ngModel"
-            required
-          />
+          <input type="text" id="maNhom" name="maNhom" class="form-control" [(ngModel)]="form.maNhom" #maNhom="ngModel"
+            required />
           <div *ngIf="maNhom.errors && (maNhom.dirty || maNhom.touched)">
             <div *ngIf="maNhom.errors.required">
               maNhom không được để trống
@@ -239,21 +160,12 @@
         <!-- ngayKhoiChieu -->
         <div class="form-group">
           <label for="ngayKhoiChieu">ngayKhoiChieu</label>
-          <input
-            type="text"
-            id="ngayKhoiChieu"
-            name="ngayKhoiChieu"
-            class="form-control"
-            [(ngModel)]="form.ngayKhoiChieu"
-            #ngayKhoiChieu="ngModel"
-            required
-          />
-          <div
-            *ngIf="
+          <input type="text" id="ngayKhoiChieu" name="ngayKhoiChieu" class="form-control"
+            [(ngModel)]="form.ngayKhoiChieu" #ngayKhoiChieu="ngModel" required />
+          <div *ngIf="
               ngayKhoiChieu.errors &&
               (ngayKhoiChieu.dirty || ngayKhoiChieu.touched)
-            "
-          >
+            ">
             <div *ngIf="ngayKhoiChieu.errors.required">
               ngayKhoiChieu không được để trống
             </div>
@@ -263,15 +175,8 @@
         <!-- danhGia -->
         <div class="form-group">
           <label for="danhGia">danhGia</label>
-          <input
-            type="text"
-            id="danhGia"
-            name="danhGia"
-            class="form-control"
-            [(ngModel)]="form.danhGia"
-            #danhGia="ngModel"
-            required
-          />
+          <input type="text" id="danhGia" name="danhGia" class="form-control" [(ngModel)]="form.danhGia"
+            #danhGia="ngModel" required />
           <div *ngIf="danhGia.errors && (danhGia.dirty || danhGia.touched)">
             <div *ngIf="danhGia.errors.required">
               danhGia không được để trống
@@ -280,11 +185,7 @@
         </div>
 
         <!-- Button submit -->
-        <button
-          type="submit"
-          class="btn btn-success "
-          [disabled]="registerForm.invalid"
-        >
+        <button type="submit" class="btn btn-success " [disabled]="registerForm.invalid">
           Đăng ký
         </button>
       </form>

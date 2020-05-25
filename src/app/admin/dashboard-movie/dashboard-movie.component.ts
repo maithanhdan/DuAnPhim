@@ -8,16 +8,19 @@ import { MovieRegister } from "src/app/core/models/movie-register";
   styleUrls: ["./dashboard-movie.component.scss"]
 })
 export class DashboardMovieComponent implements OnInit {
-  constructor(private listMovie: MoviesService) {}
+  constructor(private listMovie: MoviesService) { }
   danhSachPhim: any[];
   searchDSPhim: string;
+  
   ngOnInit(): void {
     this.listMovie.layDanhSachPhim().subscribe(rs => {
       this.danhSachPhim = rs;
     });
   }
+
   startPageNumberDS = 0;
   endPageNumberDS = 5;
+  
   getArrayNumberDsPhim(length) {
     return new Array(Math.ceil(length / 5));
   }
@@ -28,6 +31,7 @@ export class DashboardMovieComponent implements OnInit {
   }
 
   form: MovieRegister = new MovieRegister();
+
   onSubmit() {
     console.log(this.form);
     const values = { ...this.form, maNhom: 'GP01' };
