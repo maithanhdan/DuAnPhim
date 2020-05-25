@@ -7,9 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: CheckoutComponent,
-    // children: [
-    // {path: 'payment', component: PaymentComponent}
-    // ]
   },
 ];
 

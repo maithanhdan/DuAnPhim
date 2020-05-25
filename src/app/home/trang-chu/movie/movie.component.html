@@ -9,13 +9,13 @@
   </div>
   <div class="card-body">
     <h4 class="card-title">{{ phim.tenPhim | uppercase }}</h4>
-    <p class="card-text">{{ phim.moTa | lowercase }}</p>
     <p class="card-text">{{ 0.5 | percent }}</p>
     <!-- Query params cách 2 -->
     <div [routerLink]="['/detail']" [queryParams]="{ maPhim: phim.maPhim, tenPhim: phim.tenPhim }"
-      class="btn btn-success">
+      class="btn btn-success muaVe">
       Mua vé
     </div>
   </div>
 </div>
 
+  
