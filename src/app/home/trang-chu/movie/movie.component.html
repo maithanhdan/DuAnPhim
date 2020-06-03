@@ -3,7 +3,7 @@
     <img class="card-img-top" [src]="phim.hinhAnh" alt="" />
     <div class="trailer">
       <!-- Button trigger modal -->
-      <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <a class="btn btn-default" data-toggle="modal" data-target="#exampleModal">
         <i class="fa fa-play"></i>
       </a>
       <!-- Modal -->
@@ -17,7 +17,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wXTE53RVL2E"></iframe>
+              <iframe width="100%" height="100%" [src]="phim.trailer | safe:'url'"></iframe>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
     <!-- Query params cách 2 -->
     <div [routerLink]="['/detail']" [queryParams]="{ maPhim: phim.maPhim, tenPhim: phim.tenPhim }"
       class="btn btn-success muaVe">
-      Mua vée
+      Mua vé
     </div>
   </div>
 </div>
