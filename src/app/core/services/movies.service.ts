@@ -9,7 +9,7 @@ import { MovieRegister } from '../models/movie-register';
   providedIn: 'root',
 })
 export class MoviesService {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
 
   public layDanhSachPhim(): Observable<Movie[]> {
     // Chỉ có 1 params thì dùng kiểu này cho nhanh
@@ -32,7 +32,15 @@ export class MoviesService {
     return this.api.get('QuanLyPhim/LayThongTinPhim', { params });
   }
 
-  public dangKyPhim(values : MovieRegister): Observable<any> {
+  public themPhim(values: MovieRegister): Observable<any> {
     return this.api.post('QuanLyPhim/ThemPhim', values);
+  }
+
+  public xoaPhim(maPhim): Observable<any> {
+    return this.api.delete(`QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+  }
+
+  public updatePhim(values: Movie): Observable<any> {
+    return this.api.put('QuanLyPhim/CapNhatPhim', values);
   }
 }

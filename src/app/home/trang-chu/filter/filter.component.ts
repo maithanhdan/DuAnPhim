@@ -31,15 +31,18 @@ export class FilterComponent implements OnInit {
     this.CumRap = this.tenHeThongRap[stt].lstCumRap;
     console.log(this.CumRap);
   }
+  
   layTenPhim(event) {
     let stt = event.target.value;
     this.tenPhim = this.CumRap[stt].danhSachPhim;
   }
+
   layNgayChieu(event) {
     let stt = event.target.value;
     this.ngayChieu = this.tenPhim[stt].lstLichChieuTheoPhim;
     console.log(this.ngayChieu);
   }
+
   layMaLichChieu(event) {
     let stt = event.target.value;
     this.maLichChieu = this.ngayChieu[0].maLichChieu;

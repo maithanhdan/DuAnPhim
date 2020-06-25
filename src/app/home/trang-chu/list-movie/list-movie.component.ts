@@ -12,7 +12,6 @@ import { BehaviorSubject } from "rxjs";
 export class ListMovieComponent implements OnInit, OnDestroy {
   dsPhim: Movie[] = [];
   subDsPhim: Subscription;
-  private currentDSPhimSubject = new BehaviorSubject({});
 
   constructor(private moviesService: MoviesService) {}
 

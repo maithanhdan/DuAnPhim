@@ -1,7 +1,7 @@
 <div class="container-fluid" *ngIf="danhSachPhim">
   <div class="row">
-    <input type="text" [(ngModel)]="searchDSPhim" />
-    <button class="btn btn-default add" type="button" data-toggle="modal" data-target="#form">
+    <input class="searchPhim" type="text" [(ngModel)]="searchDSPhim" />
+    <button class="btn btn-success add" type="button" data-toggle="modal" data-target="#form">
       +
     </button>
   </div>
@@ -9,42 +9,41 @@
     <thead>
       <tr>
         <th>action</th>
-        <th scope="col">ma phim</th>
-        <th scope="col">ten phim</th>
-        <th scope="col">bi danh</th>
-        <th scope="col">trainler</th>
-        <th scope="col">hinh Anh</th>
-        <th scope="col">mo ta</th>
-        <th scope="col">ma nhom</th>
-        <th scope="col">ngay khoi chieu</th>
-        <th scope="col">danh gia</th>
+        <th scope="col">Mã phim</th>
+        <th scope="col">Tên phim</th>
+        <th scope="col">Bí danh</th>
+        <th scope="col">Trailer</th>
+        <th scope="col">Hình ảnh</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Ngày khởi chiếu</th>
+        <th scope="col">Đánh giá</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="
-          let user of danhSachPhim
+          let movie of danhSachPhim
             | searchDSPhim: searchDSPhim
             | slice: startPageNumberDS:endPageNumberDS
         ">
         <td class="row">
-          <button class="btn btn-success update">
+          <button class="btn btn-primary update" data-toggle="modal" data-target="#form2"
+            (click)="editPhim(movie.maPhim)">
             update
           </button>
-          <button class="btn btn-danger delete">
+          <button class="btn btn-danger delete" (click)="delete(movie.maPhim)">
             xoa
           </button>
         </td>
-        <td>{{ user.maPhim }}</td>
-        <td>{{ user.tenPhim }}</td>
-        <td>{{ user.biDanh }}</td>
-        <td>{{ user.trailer }}</td>
+        <td>{{ movie.maPhim }}</td>
+        <td>{{ movie.tenPhim }}</td>
+        <td>{{ movie.biDanh }}</td>
+        <td>{{ movie.trailer }}</td>
         <td>
-          <img class="card-img-top" [src]="user.hinhAnh" alt="" style="width:100px;height:100px;" />
+          <img class="card-img-top" [src]="movie.hinhAnh" alt="" style="width:100px;height:100px;" />
         </td>
-        <td>{{ user.moTa }}</td>
-        <td>{{ user.maNhom }}</td>
-        <td>{{ user.ngayKhoiChieu }}</td>
-        <td>{{ user.danhGia }}</td>
+        <td>{{ movie.moTa }}</td>
+        <td>{{ movie.ngayKhoiChieu}}</td>
+        <td>{{ movie.danhGia }}</td>
       </tr>
     </tbody>
 
@@ -67,128 +66,220 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <h5 class="modal-title" id="exampleModalLabel">Create Account User</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h3 class="modal-title" id="exampleModalLabel">Thêm phim</h3>
+        <button #closebutton type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-        <!-- maPhim -->
-        <div class="form-group">
-          <label for="maPhim">maPhim</label>
-          <input type="text" id="maPhim" name="maPhim" class="form-control" [(ngModel)]="form.maPhim" #maPhim="ngModel"
-            required />
-          <div *ngIf="maPhim.errors && (maPhim.dirty || maPhim.touched)">
-            <div *ngIf="maPhim.errors.required">
-              maPhim không được để trống
+
+      <div class="modal-body">
+        <form #movieForm="ngForm" (ngSubmit)="onSubmit()">
+
+          <!-- tenPhim -->
+          <div class="form-group">
+            <label for="tenPhim">Tên phim</label>
+            <input type="text" id="tenPhim" name="tenPhim" class="form-control" [(ngModel)]="form.tenPhim"
+              #tenPhim="ngModel" required />
+            <div *ngIf="tenPhim.errors && (tenPhim.dirty || tenPhim.touched)">
+              <div *ngIf="tenPhim.errors.required">
+                <small>Tên phim không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- tenPhim -->
-        <div class="form-group">
-          <label for="tenPhim">tenPhim</label>
-          <input type="text" id="tenPhim" name="tenPhim" class="form-control" [(ngModel)]="form.tenPhim"
-            #tenPhim="ngModel" required />
-          <div *ngIf="tenPhim.errors && (tenPhim.dirty || tenPhim.touched)">
-            <div *ngIf="tenPhim.errors.required">
-              tenPhim không được để trống
+          <!-- biDanh -->
+          <div class="form-group">
+            <label for="biDanh">Bí danh</label>
+            <input type="biDanh" id="biDanh" name="biDanh" class="form-control" [(ngModel)]="form.biDanh"
+              #biDanh="ngModel" required />
+            <div *ngIf="biDanh.errors && (biDanh.dirty || biDanh.touched)">
+              <div *ngIf="biDanh.errors.required">
+                <small>Bí danh không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- biDanh -->
-        <div class="form-group">
-          <label for="biDanh">biDanh</label>
-          <input type="biDanh" id="biDanh" name="biDanh" class="form-control" [(ngModel)]="form.biDanh"
-            #biDanh="ngModel" required />
-          <div *ngIf="biDanh.errors && (biDanh.dirty || biDanh.touched)">
-            <div *ngIf="biDanh.errors.required">
-              biDanh không được để trống
+          <!-- trailer -->
+          <div class="form-group">
+            <label for="trailer">trailer</label>
+            <input type="text" id="trailer" name="trailer" class="form-control" [(ngModel)]="form.trailer"
+              #trailer="ngModel" required />
+            <div *ngIf="trailer.errors && (trailer.dirty || trailer.touched)">
+              <div *ngIf="trailer.errors.required">
+                <small>trailer không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- trailer -->
-        <div class="form-group">
-          <label for="trailer">trailer</label>
-          <input type="text" id="trailer" name="trailer" class="form-control" [(ngModel)]="form.trailer"
-            #trailer="ngModel" required />
-          <div *ngIf="trailer.errors && (trailer.dirty || trailer.touched)">
-            <div *ngIf="trailer.errors.required">
-              trailer không được để trống
+          <!-- hinhAnh -->
+          <div class="form-group">
+            <label for="hinhAnh">Hình ảnh</label>
+            <input type="string" id="hinhAnh" name="hinhAnh" class="form-control" [(ngModel)]="form.hinhAnh"
+              #hinhAnh="ngModel" required />
+            <div *ngIf="hinhAnh.errors && (hinhAnh.dirty || hinhAnh.touched)">
+              <div *ngIf="hinhAnh.errors.required">
+                <small>Hình ảnh không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- hinhAnh -->
-        <div class="form-group">
-          <label for="hinhAnh">hinhAnh</label>
-          <input type="string" id="hinhAnh" name="hinhAnh" class="form-control" [(ngModel)]="form.hinhAnh"
-            #hinhAnh="ngModel" required />
-          <div *ngIf="hinhAnh.errors && (hinhAnh.dirty || hinhAnh.touched)">
-            <div *ngIf="hinhAnh.errors.required">
-              hinhAnh không được để trống
+          <!-- moTa -->
+          <div class="form-group">
+            <label for="moTa">Mô tả</label>
+            <input type="text" id="moTa" name="moTa" class="form-control" [(ngModel)]="form.moTa" #moTa="ngModel"
+              required />
+            <div *ngIf="moTa.errors && (moTa.dirty || moTa.touched)">
+              <div *ngIf="moTa.errors.required">
+                <small>Mô tả không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- moTa -->
-        <div class="form-group">
-          <label for="moTa">moTa</label>
-          <input type="text" id="moTa" name="moTa" class="form-control" [(ngModel)]="form.moTa" #moTa="ngModel"
-            required />
-          <div *ngIf="moTa.errors && (moTa.dirty || moTa.touched)">
-            <div *ngIf="moTa.errors.required">
-              moTa không được để trống
-            </div>
-          </div>
-        </div>
-
-        <!-- maNhom -->
-        <div class="form-group">
-          <label for="maNhom">maNhom</label>
-          <input type="text" id="maNhom" name="maNhom" class="form-control" [(ngModel)]="form.maNhom" #maNhom="ngModel"
-            required />
-          <div *ngIf="maNhom.errors && (maNhom.dirty || maNhom.touched)">
-            <div *ngIf="maNhom.errors.required">
-              maNhom không được để trống
-            </div>
-          </div>
-        </div>
-
-        <!-- ngayKhoiChieu -->
-        <div class="form-group">
-          <label for="ngayKhoiChieu">ngayKhoiChieu</label>
-          <input type="text" id="ngayKhoiChieu" name="ngayKhoiChieu" class="form-control"
-            [(ngModel)]="form.ngayKhoiChieu" #ngayKhoiChieu="ngModel" required />
-          <div *ngIf="
+          <!-- ngayKhoiChieu -->
+          <div class="form-group">
+            <label for="ngayKhoiChieu">Ngày khởi chiếu</label>
+            <input type="text" id="ngayKhoiChieu" name="ngayKhoiChieu" class="form-control"
+              [(ngModel)]="form.ngayKhoiChieu" #ngayKhoiChieu="ngModel" required />
+            <div *ngIf="
               ngayKhoiChieu.errors &&
               (ngayKhoiChieu.dirty || ngayKhoiChieu.touched)
             ">
-            <div *ngIf="ngayKhoiChieu.errors.required">
-              ngayKhoiChieu không được để trống
+              <div *ngIf="ngayKhoiChieu.errors.required">
+                <small>Ngày khởi chiếu không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- danhGia -->
-        <div class="form-group">
-          <label for="danhGia">danhGia</label>
-          <input type="text" id="danhGia" name="danhGia" class="form-control" [(ngModel)]="form.danhGia"
-            #danhGia="ngModel" required />
-          <div *ngIf="danhGia.errors && (danhGia.dirty || danhGia.touched)">
-            <div *ngIf="danhGia.errors.required">
-              danhGia không được để trống
+          <!-- danhGia -->
+          <div class="form-group">
+            <label for="danhGia">Đánh giá</label>
+            <input type="text" id="danhGia" name="danhGia" class="form-control" [(ngModel)]="form.danhGia"
+              #danhGia="ngModel" required />
+            <div *ngIf="danhGia.errors && (danhGia.dirty || danhGia.touched)">
+              <div *ngIf="danhGia.errors.required">
+                <small>Đánh giá không được để trống</small>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Button submit -->
-        <button type="submit" class="btn btn-success " [disabled]="registerForm.invalid">
-          Đăng ký
+          <!-- Button submit -->
+          <button type="submit" class="btn btn-success " [disabled]="movieForm.invalid">
+            Đăng ký
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup modal update movie -->
+<div class="modal fade bd-example-modal-xl" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h3 class="modal-title" id="exampleModalLabel">Sửa phim</h3>
+        <button #closeupdate type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
-      </form>
+      </div>
+
+      <div class="modal-body">
+        <form #movieForm2="ngForm" (ngSubmit)="onSubmit()">
+
+          <!-- tenPhim -->
+          <div class="form-group">
+            <label for="tenPhim">Tên phim</label>
+            <input type="text" id="tenPhim" name="tenPhim" class="form-control" [(ngModel)]="phim.tenPhim"
+              #tenPhim="ngModel" required />
+            <div *ngIf="tenPhim.errors && (tenPhim.dirty || tenPhim.touched)">
+              <div *ngIf="tenPhim.errors.required">
+                <small>Tên phim không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- biDanh -->
+          <div class="form-group">
+            <label for="biDanh">Bí danh</label>
+            <input type="biDanh" id="biDanh" name="biDanh" class="form-control" [(ngModel)]="phim.biDanh"
+              #biDanh="ngModel" required />
+            <div *ngIf="biDanh.errors && (biDanh.dirty || biDanh.touched)">
+              <div *ngIf="biDanh.errors.required">
+                <small>Bí danh không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- trailer -->
+          <div class="form-group">
+            <label for="trailer">trailer</label>
+            <input type="text" id="trailer" name="trailer" class="form-control" [(ngModel)]="phim.trailer"
+              #trailer="ngModel" required />
+            <div *ngIf="trailer.errors && (trailer.dirty || trailer.touched)">
+              <div *ngIf="trailer.errors.required">
+                <small>trailer không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- hinhAnh -->
+          <div class="form-group">
+            <label for="hinhAnh">Hình ảnh</label>
+            <input type="string" id="hinhAnh" name="hinhAnh" class="form-control" [(ngModel)]="phim.hinhAnh"
+              #hinhAnh="ngModel" required />
+            <div *ngIf="hinhAnh.errors && (hinhAnh.dirty || hinhAnh.touched)">
+              <div *ngIf="hinhAnh.errors.required">
+                <small>Hình ảnh không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- moTa -->
+          <div class="form-group">
+            <label for="moTa">Mô tả</label>
+            <input type="text" id="moTa" name="moTa" class="form-control" [(ngModel)]="phim.moTa" #moTa="ngModel"
+              required />
+            <div *ngIf="moTa.errors && (moTa.dirty || moTa.touched)">
+              <div *ngIf="moTa.errors.required">
+                <small>Mô tả không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- ngayKhoiChieu -->
+          <div class="form-group">
+            <label for="ngayKhoiChieu">Ngày khởi chiếu</label>
+            <input type="text" id="ngayKhoiChieu" name="ngayKhoiChieu" class="form-control"
+              [(ngModel)]="phim.ngayKhoiChieu" #ngayKhoiChieu="ngModel" required />
+            <div *ngIf="
+              ngayKhoiChieu.errors &&
+              (ngayKhoiChieu.dirty || ngayKhoiChieu.touched)
+            ">
+              <div *ngIf="ngayKhoiChieu.errors.required">
+                <small>Ngày khởi chiếu không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- danhGia -->
+          <div class="form-group">
+            <label for="danhGia">Đánh giá</label>
+            <input type="text" id="danhGia" name="danhGia" class="form-control" [(ngModel)]="phim.danhGia"
+              #danhGia="ngModel" required />
+            <div *ngIf="danhGia.errors && (danhGia.dirty || danhGia.touched)">
+              <div *ngIf="danhGia.errors.required">
+                <small>Đánh giá không được để trống</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button submit -->
+          <button class="btn btn-success " [disabled]="movieForm2.invalid" (click)="updatePhim()">
+            Đăng ký
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

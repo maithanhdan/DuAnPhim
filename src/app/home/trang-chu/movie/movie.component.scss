@@ -1,5 +1,5 @@
 .card {
-  margin:5px 0;
+  margin: 5px 0;
   .img_trailer {
     position: relative;
     img {
@@ -25,15 +25,41 @@
         opacity: 0;
         transition: all 0.5s;
       }
+      .modal {
+        top: 7%;
+        left: -12%;
+        .modal-dialog {
+          .modal-content {
+            border: none;
+            width: 182%;
+            height: 550px;
+            .modal-body {
+              padding: 0;
+              .close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: white;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 15px;
+                border: 2px white solid;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
     }
   }
-  
+
   .card-body {
     position: relative;
-    padding:0;
+    padding: 0;
     height: 100px;
     max-height: 100px;
-    .muaVe{
+    .muaVe {
       display: none;
       position: absolute;
       top: 50%;
@@ -42,7 +68,7 @@
     }
   }
 }
-.card:hover{
+.card:hover {
   .img_trailer {
     .trailer {
       i {
@@ -50,12 +76,13 @@
       }
     }
   }
-  .card-body{
-    .muaVe{
+  .card-body {
+    .muaVe {
       display: block;
       padding: 15px 30px;
     }
-    .card-title , .card-text{
+    .card-title,
+    .card-text {
       opacity: 0;
     }
   }

@@ -7,7 +7,7 @@ export class MovieRegister {
   moTa: string;
   maNhom: string;
   ngayKhoiChieu: string;
-  danhGia: string;
+  danhGia: number;
 
   constructor(
     maPhim?: string,
@@ -18,7 +18,7 @@ export class MovieRegister {
     moTa?: string,
     maNhom?: string,
     ngayKhoiChieu?: string,
-    danhGia?: string
+    danhGia?: number
   ) {
     this.maPhim = maPhim;
     this.tenPhim = tenPhim;
@@ -28,6 +28,6 @@ export class MovieRegister {
     this.moTa = moTa;
     this.maNhom = maNhom;
     this.ngayKhoiChieu = ngayKhoiChieu;
-    this.danhGia=danhGia
+    this.danhGia = danhGia
   }
 }

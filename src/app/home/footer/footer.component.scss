@@ -1,31 +1,137 @@
-.bgColor {
-  background-color: #222222;
+#footer {
+  background-color: #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #949494;
 }
-.title {
-  color: white;
+
+.mainMaxWidth {
+  max-width: 940px;
+  float: none;
+  margin: auto;
+  clear: both;
 }
-a img {
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-sm-4 {
+  width: 33.33333333%;
+}
+
+#footer .title {
+  color: #fff;
+  font-size: 80%;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+#footer .noPaddingLeft {
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .col-sm-6 {
+    width: 50%;
+  }
+}
+
+#footer .fontSizeP a {
+  font-size: 12px!important;
+  font-size: 80%;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #949494;
+  display: block;
+  transition: all .2s;
+  line-height: 2.3;
+}
+
+#footer .linePartner {
+  margin-bottom: 8px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#footer .linePartner a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+#footer .iconConnect {
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  margin: 15px;
+  margin: 0;
+  margin-right: 15px;
 }
-.app-mobile {
-  margin: 0 50px 0 0;
+
+#footer .linePartner a img{
+  margin: 0 16px 6px 0;
 }
-.col-sm-8 span {
-  color: #949494;
+
+.col-xs-6 {
+  width: 50%;
 }
-a .imgBoCo {
-  width: 130px;
-  float: right;
-  height: 50px;
-  border-radius: 10%;
+
+#footer .textCenter {
+  text-align: center;
 }
-a .vngIcon {
+
+#footer .iconApp {
+  background: 0 0;
+  height: 30px;
+  width: auto;
+  margin: 5px;
+}
+
+#footer .imgFooter {
+  text-align: center;
+  padding: 0;
+}
+
+#footer .hrFooter {
+  border-top: 1px solid #4a4a4a;
+}
+
+#footer .vngIcon {
   width: 80px;
   height: auto;
 }
- .hrFooter {
-  border-top: 1px solid #4a4a4a;
+
+#footer .infoFooter {
+  color: #fff;
+  white-space: nowrap;
+  font-size: 70%;
+}
+
+#footer .infoFooter span {
+  display: block;
+  line-height: 1.8;
+  color: #949494;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#footer .imgFooter {
+  text-align: center;
+  padding: 0;
+}
+
+#footer .imgFooter a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+#footer .imgBoCo {
+  width: 130px;
+  float: right;
 }

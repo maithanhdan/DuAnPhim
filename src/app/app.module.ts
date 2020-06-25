@@ -9,7 +9,7 @@ import { CoreModule } from "./core/core.module";
 import { AuthModule } from "./auth/auth.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
-// import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
+import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

@@ -11,7 +11,6 @@ import { TrangChuRoutingModule } from './trang-chu-routing.module';
 import { LightboxModule } from 'ngx-lightbox';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppLinkComponent } from './app-link/app-link.component';
-import { SafePipe } from 'src/app/shared/pipe/safe.pipe';
 @NgModule({
   declarations: [
     TrangChuComponent,
